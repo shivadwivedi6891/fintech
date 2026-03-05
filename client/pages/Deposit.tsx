@@ -3,6 +3,7 @@ import { GlassCard } from "@/components/common/GlassCard";
 import { Wallet, Copy, Check, AlertCircle, CheckCircle, QrCode } from "lucide-react";
 import { apiClient } from "@/services/api";
 import { useAuth } from "@/context/AuthContext";
+import axios from "axios";
 
 interface DepositAddressResponse {
   success: boolean;
@@ -14,7 +15,8 @@ export default function Deposit() {
   const { user } = useAuth();
   const [amount, setAmount] = useState("");
   const [txHash, setTxHash] = useState("");
-  const [depositAddress, setDepositAddress] = useState<string>("");
+  const [screenshot, setScreenshot] = useState<File | null>(null);
+  const [depositAddress, setDepositAddress] = useState<string>("TRRBEAZp1UhHd3W5sKHfpWjxk77WjargVg");
   const [network, setNetwork] = useState<string>("TRC20");
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
@@ -33,7 +35,7 @@ export default function Deposit() {
       const response = await apiClient.get<DepositAddressResponse>("/wallet/deposit-address");
       
       if (response.data.success) {
-        setDepositAddress(response.data.address);
+        // setDepositAddress(response.data.address);
         setNetwork(response.data.network);
       }
     } catch (err: any) {
@@ -48,6 +50,29 @@ export default function Deposit() {
       navigator.clipboard.writeText(depositAddress);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      // Validate file type
+      const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+      if (!validTypes.includes(file.type)) {
+        setError('Please select a valid image file (JPEG, PNG, or WebP)');
+        e.target.value = '';
+        return;
+      }
+      
+      // Validate file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        setError('Image size should not exceed 5MB');
+        e.target.value = '';
+        return;
+      }
+      
+      setScreenshot(file);
+      setError(null);
     }
   };
 
@@ -66,21 +91,48 @@ export default function Deposit() {
       return;
     }
 
+    if (!screenshot) {
+      setError("Please upload a transaction screenshot");
+      return;
+    }
+
     try {
       setSubmitting(true);
       
-      const response = await apiClient.post("/deposit/submit", {
-        tx_hash: txHash,
-        amount: parseFloat(amount)
+      // Get token from localStorage
+      const token = localStorage.getItem('auth_token');
+      if (!token) {
+        setError("Authentication required. Please login again.");
+        return;
+      }
+
+      // Create FormData
+      const formData = new FormData();
+      formData.append('tx_hash', txHash);
+      formData.append('amount', amount);
+      formData.append('screenshot', screenshot);
+
+      // Use axios directly for file upload (not apiClient to avoid Content-Type conflicts)
+      const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+      const response = await axios.post(`${API_BASE_URL}/deposit/submit`, formData, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+          // Don't set Content-Type - axios will automatically set multipart/form-data with boundary
+        }
       });
 
       if (response.data.success) {
         setSuccess("Deposit submitted successfully! Your transaction will be verified within 5-10 minutes.");
         setAmount("");
         setTxHash("");
+        setScreenshot(null);
         setStep(1);
         
-        // Reset form after 3 seconds
+        // Reset file input
+        const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
+        if (fileInput) fileInput.value = '';
+        
+        // Reset form after 5 seconds
         setTimeout(() => {
           setSuccess(null);
         }, 5000);
@@ -299,6 +351,34 @@ export default function Deposit() {
                     </p>
                   </div>
 
+                  {/* Screenshot Upload */}
+                  <div>
+                    <label className="block text-sm font-semibold mb-3">
+                      Transaction Screenshot
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="file"
+                        accept="image/jpeg,image/jpg,image/png,image/webp"
+                        onChange={handleFileChange}
+                        className="w-full bg-input border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary/20 file:text-primary hover:file:bg-primary/30 file:cursor-pointer"
+                        required
+                        disabled={submitting}
+                      />
+                    </div>
+                    {screenshot && (
+                      <p className="text-xs text-profit mt-2 flex items-center gap-1">
+                        <CheckCircle size={14} />
+                        Selected: {screenshot.name} ({(screenshot.size / 1024).toFixed(2)} KB)
+                      </p>
+                    )}
+                    {!screenshot && (
+                      <p className="text-xs text-muted-foreground mt-2">
+                        Upload a screenshot of your transaction (JPEG, PNG, or WebP - Max 5MB)
+                      </p>
+                    )}
+                  </div>
+
                   {/* Deposit Address Display */}
                   <div>
                     <label className="block text-sm font-semibold mb-2">
@@ -323,7 +403,7 @@ export default function Deposit() {
                     </button>
                     <button
                       type="submit"
-                      disabled={submitting || !amount || !txHash}
+                      disabled={submitting || !amount || !txHash || !screenshot}
                       className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
                       {submitting ? (
@@ -359,6 +439,12 @@ export default function Deposit() {
                   <p className="font-semibold mb-1">Where can I find my transaction hash?</p>
                   <p className="text-muted-foreground">
                     Open your wallet app, go to transaction history, and copy the transaction ID/hash after sending USDT.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-semibold mb-1">Why do I need to upload a screenshot?</p>
+                  <p className="text-muted-foreground">
+                    The screenshot helps us verify your transaction faster and provides additional proof of payment.
                   </p>
                 </div>
                 <div>
