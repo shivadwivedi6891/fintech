@@ -854,7 +854,7 @@ export default function Landing() {
                       <div>
                         <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${mutedClasses}`}>EMAIL</p>
                         <p className={`text-sm font-semibold ${isDarkMode ? "text-blue-400" : "text-blue-600"}`}>
-                          support@tradepro.com
+                          Support@timofx.com
                         </p>
                       </div>
                     </div>
@@ -971,7 +971,7 @@ export default function Landing() {
                     <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    <span>support@tradepro.com</span>
+                    <span>Support@timofx.com</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-slate-400">
                     <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
