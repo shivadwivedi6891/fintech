@@ -71,7 +71,7 @@ export default function Withdraw() {
             <div>
               <p className="font-semibold">Withdrawal Window Closed</p>
               <p className="text-sm text-muted-foreground mt-1">
-                Withdrawals are available only from 1st to 5th of each month.
+                Withdrawals are available only from 28th of each month.
                 <br />
                 Next window: In {getDaysUntilWithdrawal()} days
               </p>
@@ -119,7 +119,7 @@ export default function Withdraw() {
               >
                 <p className="font-semibold mb-1">Profit Withdrawal</p>
                 <p className="text-xs text-muted-foreground">
-                  Withdraw your earnings (1% fee)
+                  {/* Withdraw your earnings (1% fee) */}
                 </p>
               </button>
               <button
@@ -133,14 +133,14 @@ export default function Withdraw() {
               >
                 <p className="font-semibold mb-1">Principal Withdrawal</p>
                 <p className="text-xs text-muted-foreground">
-                  Withdraw your investment (1% fee)
+                  {/* Withdraw your investment (1% fee) */}
                 </p>
               </button>
             </div>
           </div>
 
           {/* Early Exit Fee Warning */}
-          {withdrawType === "principal" && (
+          {/* {withdrawType === "principal" && (
             <GlassCard className="p-4 border-loss/50 flex items-start gap-4">
               <AlertCircle className="text-loss flex-shrink-0 mt-0.5" size={20} />
               <div className="text-sm">
@@ -150,7 +150,7 @@ export default function Withdraw() {
                 </p>
               </div>
             </GlassCard>
-          )}
+          )} */}
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Amount Input */}
