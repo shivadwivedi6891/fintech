@@ -102,40 +102,40 @@
     --sidebar-ring: 162 72% 45%;
   }
 
-  /* Light mode for dashboard */
+  /* Light mode - Professional Green Trading Theme */
   html.light-mode {
-    --background: 210 40% 98%;
-    --foreground: 210 13% 9%;
-    --card: 0 0% 100%;
-    --card-foreground: 210 13% 15%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 13% 9%;
-    --primary: 162 72% 45%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 210 20% 92%;
-    --secondary-foreground: 210 13% 15%;
-    --muted: 210 15% 95%;
-    --muted-foreground: 210 13% 40%;
-    --accent: 45 93% 56%;
-    --accent-foreground: 210 13% 9%;
-    --destructive: 0 84.2% 60.2%;
+    --background: 150 20% 98%;        /* Soft green-tinted background #F8FAF9 */
+    --foreground: 222 47% 11%;        /* Deep slate text #0F172A for high contrast */
+    --card: 0 0% 100%;                /* Pure white cards #FFFFFF */
+    --card-foreground: 222 47% 11%;   /* Deep slate text */
+    --popover: 0 0% 100%;             /* White popover */
+    --popover-foreground: 222 47% 11%; /* Deep slate text */
+    --primary: 142 76% 36%;           /* Professional green #16A34A */
+    --primary-foreground: 0 0% 100%;  /* White text on green */
+    --secondary: 138 35% 93%;         /* Light green-tinted secondary #F0FDF4 */
+    --secondary-foreground: 222 47% 11%; /* Deep slate text */
+    --muted: 150 20% 96%;             /* Visible muted background */
+    --muted-foreground: 215 20% 40%;  /* Medium-dark gray #475569 for better visibility */
+    --accent: 142 71% 45%;            /* Brighter green accent #22C55E */
+    --accent-foreground: 0 0% 100%;   /* White text on accent */
+    --destructive: 0 84.2% 60.2%;     /* Red for errors */
     --destructive-foreground: 0 0% 100%;
-    --border: 210 30% 92%;
-    --input: 210 15% 97%;
-    --ring: 162 72% 45%;
-    --success: 162 72% 50%;
-    --success-foreground: 0 0% 100%;
-    --profit: 162 75% 50%;
-    --loss: 0 84.2% 60.2%;
-    --warning: 45 93% 56%;
-    --sidebar-background: 210 35% 97%;
-    --sidebar-foreground: 210 13% 15%;
-    --sidebar-primary: 162 72% 45%;
+    --border: 214 32% 85%;            /* More visible borders #E2E8F0 */
+    --input: 150 15% 97%;             /* Slightly tinted input background */
+    --ring: 142 76% 36%;              /* Green focus ring */
+    --success: 142 76% 36%;           /* Professional green for success */
+    --success-foreground: 0 0% 100%;  /* White text */
+    --profit: 142 71% 45%;            /* Bright green for profit #22C55E */
+    --loss: 0 84.2% 60.2%;            /* Red for loss */
+    --warning: 45 93% 56%;            /* Amber warning */
+    --sidebar-background: 138 25% 97%; /* Very light green sidebar */
+    --sidebar-foreground: 222 47% 11%; /* Deep slate text */
+    --sidebar-primary: 142 76% 36%;   /* Professional green */
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 25% 90%;
-    --sidebar-accent-foreground: 210 13% 15%;
-    --sidebar-border: 210 30% 92%;
-    --sidebar-ring: 162 72% 45%;
+    --sidebar-accent: 138 35% 93%;    /* Light green accent */
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 85%;    /* Visible border */
+    --sidebar-ring: 142 76% 36%;      /* Green focus ring */
   }
 }
 

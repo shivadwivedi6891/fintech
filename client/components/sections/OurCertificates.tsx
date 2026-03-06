@@ -56,14 +56,14 @@ const itemVariants = {
 };
 
 export function OurCertificates({ isDarkMode }: OurCertificatesProps) {
-  const mutedClasses = isDarkMode ? "text-slate-400" : "text-slate-600";
+  const mutedClasses = isDarkMode ? "text-slate-400" : "text-slate-700";
   const cardBg = isDarkMode
     ? "bg-slate-800/40 border-slate-700/50"
-    : "bg-white/40 border-slate-300/50";
+    : "bg-white/90 border-slate-300/70 shadow-md";
   const textColor = isDarkMode ? "text-slate-100" : "text-slate-900";
   const imagePlaceholderBg = isDarkMode
     ? "bg-slate-700/30 border-slate-600/30"
-    : "bg-slate-100/50 border-slate-200/50";
+    : "bg-green-50/60 border-green-200/40";
 
   return (
     <section
