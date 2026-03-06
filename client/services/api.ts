@@ -10,9 +10,6 @@ class ApiService {
     this.instance = axios.create({
       baseURL: API_BASE_URL,
       timeout: 10000,
-      headers: {
-        "Content-Type": "application/json",
-      },
     });
 
     // Request interceptor
@@ -21,6 +18,10 @@ class ApiService {
         const token = localStorage.getItem("auth_token");
         if (token) {
           config.headers.Authorization = `Bearer ${token}`;
+        }
+        // Only set Content-Type for non-FormData requests
+        if (!(config.data instanceof FormData)) {
+          config.headers["Content-Type"] = "application/json";
         }
         return config;
       },
@@ -41,13 +42,14 @@ class ApiService {
 
         const message =
           error.response?.data instanceof Object
-            ? (error.response.data as any).error || (error.response.data as any).message
+            ? (error.response.data as any).error ||
+              (error.response.data as any).message
             : error.message;
 
         const errorObj = new Error(message || "An error occurred");
         (errorObj as any).status = error.response?.status;
         (errorObj as any).data = error.response?.data;
-        
+
         return Promise.reject(errorObj);
       },
     );
