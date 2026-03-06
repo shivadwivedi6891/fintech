@@ -9,7 +9,8 @@ import { MarketCandleChart } from "@/components/charts/MarketCandleChart";
 import { GlassCard } from "@/components/common/GlassCard";
 import { StatusBadge } from "@/components/common/StatusBadge";
 import { mockChartData } from "@/mock/data";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { investmentService, InvestmentGrowthData } from "@/services/investment.service";
 import {
   Wallet,
   TrendingUp,
@@ -23,12 +24,35 @@ export default function Dashboard() {
   const { user } = useAuth();
   const { balance, fetchWalletBalance } = useWallet();
   const { setActivationModalOpen } = useApp();
+  const [investmentGrowthData, setInvestmentGrowthData] = useState<InvestmentGrowthData[]>(mockChartData);
+  const [isLoadingGrowth, setIsLoadingGrowth] = useState(true);
 
   useEffect(() => {
     if (user) {
       fetchWalletBalance();
+      fetchInvestmentGrowth();
     }
   }, [user]);
+
+  const fetchInvestmentGrowth = async () => {
+    try {
+      setIsLoadingGrowth(true);
+      const data = await investmentService.getInvestmentGrowth();
+      if (data && data.length > 0) {
+        setInvestmentGrowthData(data);
+      } else {
+        // If no data, use mock data
+        setInvestmentGrowthData(mockChartData);
+      }
+    } catch (error) {
+      console.error("Error fetching investment growth:", error);
+      // On error, keep using mock data
+      setInvestmentGrowthData(mockChartData);
+    } finally {
+      setIsLoadingGrowth(false);
+    }
+  };
+
   // Use mock data if balance is not loaded
   const displayBalance = balance;
 
@@ -96,11 +120,17 @@ export default function Dashboard() {
 
           {/* Investment Growth Chart - 8 columns */}
           <div className="md:col-span-8">
-            <SimpleChart
-              data={mockChartData}
-              title="Investment Growth Chart"
-              height="h-80"
-            />
+            {isLoadingGrowth ? (
+              <GlassCard heavy className="p-6 h-80 flex items-center justify-center">
+                <p className="text-muted-foreground">Loading investment growth data...</p>
+              </GlassCard>
+            ) : (
+              <SimpleChart
+                data={investmentGrowthData}
+                title="Investment Growth Chart"
+                height="h-80"
+              />
+            )}
           </div>
         </div>
 

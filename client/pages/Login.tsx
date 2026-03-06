@@ -99,36 +99,8 @@ export default function Login() {
             </button>
           </form>
 
-          {/* Demo Credentials */}
-          <div className="pt-4 border-t border-white/10">
-            <p className="text-xs text-muted-foreground text-center mb-3">
-              Demo Credentials
-            </p>
-            <div className="space-y-2 text-xs">
-              <button
-                type="button"
-                onClick={() => {
-                  setEmail("demo@example.com");
-                  setPassword("Demo123!@#");
-                }}
-                className="w-full text-left bg-card/50 hover:bg-card/80 p-2 rounded border border-white/10 transition-colors"
-              >
-                <span className="text-muted-foreground">Email:</span>{" "}
-                <span className="text-foreground">demo@example.com</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setEmail("demo@example.com");
-                  setPassword("Demo123!@#");
-                }}
-                className="w-full text-left bg-card/50 hover:bg-card/80 p-2 rounded border border-white/10 transition-colors"
-              >
-                <span className="text-muted-foreground">Password:</span>{" "}
-                <span className="text-foreground">Demo123!@#</span>
-              </button>
-            </div>
-          </div>
+          
+          
         </GlassCard>
 
         {/* Sign Up Link */}
