@@ -18,6 +18,7 @@ import Verify2FA from "@/pages/Verify2FA";
 import Enable2FA from "@/pages/Enable2FA";
 import Confirm2FA from "@/pages/Confirm2FA";
 import Dashboard from "@/pages/Dashboard";
+
 import Deposit from "@/pages/Deposit";
 import Withdraw from "@/pages/Withdraw";
 import RobotActivation from "@/pages/RobotActivation";

@@ -52,10 +52,10 @@ const itemVariants = {
 export function StartSmartInvestBetter({
   isDarkMode,
 }: StartSmartInvestBetterProps) {
-  const mutedClasses = isDarkMode ? "text-slate-400" : "text-slate-600";
+  const mutedClasses = isDarkMode ? "text-slate-400" : "text-slate-700";
   const cardBg = isDarkMode
     ? "bg-slate-800/40 border-slate-700/50"
-    : "bg-white/40 border-slate-300/50";
+    : "bg-white/90 border-slate-300/70 shadow-md";
   const textColor = isDarkMode ? "text-slate-100" : "text-slate-900";
 
   return (
@@ -79,7 +79,7 @@ export function StartSmartInvestBetter({
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-sm ${
               isDarkMode
                 ? "bg-cyan-500/10 border-cyan-500/30"
-                : "bg-cyan-500/15 border-cyan-500/40"
+                : "bg-cyan-100/80 border-cyan-400/50 shadow-sm"
             }`}
           >
             <Zap className="w-4 h-4 text-cyan-500" />

@@ -57,10 +57,10 @@ const itemVariants = {
 };
 
 export function OurJourney({ isDarkMode }: OurJourneyProps) {
-  const mutedClasses = isDarkMode ? "text-slate-400" : "text-slate-600";
+  const mutedClasses = isDarkMode ? "text-slate-400" : "text-slate-700";
   const cardBg = isDarkMode
     ? "bg-slate-800/40 border-slate-700/50"
-    : "bg-white/40 border-slate-300/50";
+    : "bg-white/90 border-slate-300/70 shadow-md";
   const textColor = isDarkMode ? "text-slate-100" : "text-slate-900";
 
   return (

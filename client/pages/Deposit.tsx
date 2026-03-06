@@ -3,7 +3,6 @@ import { GlassCard } from "@/components/common/GlassCard";
 import { Wallet, Copy, Check, AlertCircle, CheckCircle, QrCode } from "lucide-react";
 import { apiClient } from "@/services/api";
 import { useAuth } from "@/context/AuthContext";
-import axios from "axios";
 
 interface DepositAddressResponse {
   success: boolean;
@@ -112,12 +111,10 @@ export default function Deposit() {
       formData.append('amount', amount);
       formData.append('screenshot', screenshot);
 
-      // Use axios directly for file upload (not apiClient to avoid Content-Type conflicts)
-      const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
-      const response = await axios.post(`${API_BASE_URL}/deposit/submit`, formData, {
+      // Send request with FormData
+      const response = await apiClient.post("/deposit/submit", formData, {
         headers: {
           'Authorization': `Bearer ${token}`
-          // Don't set Content-Type - axios will automatically set multipart/form-data with boundary
         }
       });
 
