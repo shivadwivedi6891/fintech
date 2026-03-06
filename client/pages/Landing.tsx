@@ -376,25 +376,25 @@ export default function Landing() {
               {[
                 {
                   title: "Active Customers",
-                  value: "15,000+",
+                  value: "1,000+",
                   icon: "👥",
                   color: "from-blue-500 to-cyan-500",
                 },
                 {
                   title: "Funds Managed",
-                  value: "$250M+",
+                  value: "$250k+",
                   icon: "💰",
                   color: "from-emerald-500 to-green-500",
                 },
                 {
-                  title: "Daily Growth",
-                  value: "2.5%",
+                  title: "Monthly Growth",
+                  value: "7-12%",
                   icon: "📈",
                   color: "from-amber-500 to-orange-500",
                 },
                 {
                   title: "Years of Trust",
-                  value: "5+",
+                  value: "2+",
                   icon: "🏆",
                   color: "from-purple-500 to-pink-500",
                 },
@@ -483,7 +483,7 @@ export default function Landing() {
                       5%
                     </span>
                     <span className={`${mutedClasses} ml-2`}>
-                      Annual Interest
+                      Monthly Interest
                     </span>
                   </div>
                   <div
@@ -493,7 +493,7 @@ export default function Landing() {
                       className={`text-sm font-bold ${isDarkMode ? "text-slate-300" : "text-slate-800"}`}
                     >
                       Minimum Investment:{" "}
-                      <span className={isDarkMode ? "text-blue-400" : "text-blue-600"}>Less than $99</span>
+                      <span className={isDarkMode ? "text-blue-400" : "text-blue-600"}>Less than $999</span>
                     </p>
                   </div>
                   <ul
@@ -550,7 +550,7 @@ export default function Landing() {
                       7%
                     </span>
                     <span className={`${mutedClasses} ml-2`}>
-                      Annual Interest
+                      Monthly Interest
                     </span>
                   </div>
                   <div
@@ -560,7 +560,7 @@ export default function Landing() {
                       className={`text-sm font-bold ${isDarkMode ? "text-slate-300" : "text-slate-800"}`}
                     >
                       Minimum Investment:{" "}
-                      <span className={isDarkMode ? "text-amber-400" : "text-amber-600"}>≥ $100</span>
+                      <span className={isDarkMode ? "text-amber-400" : "text-amber-600"}>≥ $1000</span>
                     </p>
                   </div>
                   <ul
@@ -620,7 +620,7 @@ export default function Landing() {
                       Our Story
                     </h3>
                     <p className={`${mutedClasses} leading-relaxed`}>
-                      Founded in 2019, TradePro emerged from a vision to
+                      Founded in 2024, TradePro emerged from a vision to
                       democratize wealth management. We built a platform where
                       both beginners and experienced traders could grow their
                       investments safely and transparently. Today, we've helped
@@ -867,7 +867,7 @@ export default function Landing() {
                       <div>
                         <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${mutedClasses}`}>PHONE</p>
                         <p className={`text-sm font-semibold ${isDarkMode ? "text-white" : "text-slate-900"}`}>
-                          +1 (800) 123-4567
+                          +49 40 4870 5778
                         </p>
                       </div>
                     </div>
@@ -881,7 +881,7 @@ export default function Landing() {
                       <div>
                         <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${mutedClasses}`}>ADDRESS</p>
                         <p className={`text-sm font-semibold ${isDarkMode ? "text-white" : "text-slate-900"}`}>
-                          123 Finance Street, New York, NY 10001, USA
+                          Bernhard-Nocht-Straße 113, 20359 Hamburg, Germany
                         </p>
                       </div>
                     </div>
@@ -977,14 +977,14 @@ export default function Landing() {
                     <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
-                    <span>+1 (800) 123-4567</span>
+                    <span>+49 40 4870 5778</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-slate-400">
                     <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
-                    <span>New York, USA</span>
+                    <span>Bernhard-Nocht-Straße 113, 20359 Hamburg, Germany</span>
                   </div>
                 </div>
                 {/* Social Links */}
@@ -1034,12 +1034,9 @@ export default function Landing() {
                 <h3 className="text-lg font-bold text-white mb-4">Trading Solutions</h3>
                 <ul className="space-y-3">
                   {[
-                    "Investment Planning",
                     "Portfolio Management",
                     "Risk Assessment",
-                    "Market Analysis",
                     "Wealth Management",
-                    "Financial Advisory",
                   ].map((service) => (
                     <li key={service}>
                       <a
@@ -1077,14 +1074,12 @@ export default function Landing() {
                   </button>
                 </div>
                 <div className="flex gap-4 text-xs text-slate-500">
-                  <div className="flex items-center gap-1">
-                    <span className="text-white font-bold">2+</span> Projects
-                  </div>
+                  
                   <div className="flex items-center gap-1">
                     <span className="text-white font-bold">98%</span> Satisfaction
                   </div>
                   <div className="flex items-center gap-1">
-                    <span className="text-white font-bold">1+</span> Years
+                    <span className="text-white font-bold">2+</span> Years
                   </div>
                 </div>
               </div>
@@ -1115,11 +1110,3 @@ export default function Landing() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
