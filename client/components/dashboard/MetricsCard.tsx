@@ -47,10 +47,10 @@ export function MetricsCard({
           {trend && (
             <div className={cn("text-sm font-medium mt-2 transition-all duration-300", trend.isPositive ? "text-profit" : "text-loss")}>
               <span className="inline-block transition-transform duration-300 group-hover:scale-110">
-                {trend.isPositive ? "↗" : "↘"}
+                {/* {trend.isPositive ? "↗" : "↘"} */}
               </span>
               {" "}
-              {Math.abs(trend.value).toFixed(1)}% this month
+              {/* {Math.abs(trend.value).toFixed(1)}% this month */}
             </div>
           )}
         </div>

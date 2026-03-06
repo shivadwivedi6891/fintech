@@ -127,13 +127,16 @@ export function isWithdrawalAllowed(): boolean {
  */
 export function getDaysUntilWithdrawal(): number {
   const today = new Date();
-  const dayOfMonth = today.getDate();
+  const day = today.getDate();
 
-  if (dayOfMonth >= 1 && dayOfMonth <= 5) {
-    return 0;
+  if (day === 28) {
+    return 0; // withdrawal open
   }
 
-  const nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1);
-  const msPerDay = 24 * 60 * 60 * 1000;
-  return Math.ceil((nextMonth.getTime() - today.getTime()) / msPerDay);
+  if (day < 28) {
+    return 28 - day;
+  }
+
+  const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+  return daysInMonth - day + 28;
 }
