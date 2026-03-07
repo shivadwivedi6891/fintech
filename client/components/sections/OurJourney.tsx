@@ -12,24 +12,34 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
   {
-    year: "2018",
+    year: "2024",
     title: "Founded",
-    description: "TIMO FX was established with a vision to democratize trading",
+    description:
+      "Our platform was officially launched with a vision to simplify crypto-based investments and make digital asset opportunities accessible to everyone.",
   },
   {
-    year: "2019",
-    title: "1 Million Traders",
-    description: "Reached 1 million active traders milestone",
+    year: "2024",
+    title: "First Major Milestone",
+    description:
+      "Successfully reached 1,000 active investors across the country, marking strong early trust and rapid community growth.",
   },
   {
-    year: "2021",
+    year: "2025",
     title: "Global Expansion",
-    description: "Expanded to 150+ countries with multi-language support",
+    description:
+      "Expanded our services internationally, welcoming investors from Poland, Spain, Thailand, India, Philippines, Malaysia, UAE, Hong Kong, and Singapore.",
   },
   {
-    year: "2023",
-    title: "Industry Recognition",
-    description: "Awarded Best Trading Platform by multiple industry bodies",
+    year: "2025",
+    title: "10K Investor Milestone",
+    description:
+      "Crossed 10,000+ registered investors in the second quarter of 2025, reflecting strong global adoption and platform growth.",
+  },
+  {
+    year: "2026",
+    title: "Future Vision",
+    description:
+      "Our vision is to further expand globally, introduce advanced investment solutions, and build one of the most trusted crypto investment communities powered by blockchain technology.",
   },
 ];
 
