@@ -17,6 +17,7 @@ import {
   Gift,
   ArrowUpRight,
   ArrowDownLeft,
+  Users,
 } from "lucide-react";
 
 export default function Dashboard() {
@@ -65,12 +66,12 @@ export default function Dashboard() {
   };
   return (
     <main className="p-4 lg:p-8 lg:ml-64 min-h-screen">
-      <div className="w-full max-w-7xl mx-auto space-y-8 animate-fade-in">
+      <div className="w-full max-w-7xl mx-auto space-y-8 ">
         {/* Welcome Section */}
         <div className="space-y-2">
           <h1 className="text-3xl md:text-4xl font-bold">Dashboard</h1>
           <p className="text-muted-foreground">
-            Welcome back, {user?.name}! Here's your trading overview.
+            Welcome back, {user?.name}! Here's your investment overview.
           </p>
         </div>
 
@@ -79,8 +80,9 @@ export default function Dashboard() {
           <MetricsCard
             title="Main Wallet"
             value={displayBalance.mainWallet}
+        
             icon={<Wallet />}
-            glowing
+            
             trend={{ value: 2.5, isPositive: true }}
           />
           <MetricsCard
@@ -146,23 +148,27 @@ export default function Dashboard() {
                 heavy
                 className="p-6 bg-gradient-to-br from-emerald-500/10 to-green-500/5 hover:from-emerald-500/20 hover:to-green-500/10 transition-all hover:scale-105 h-full flex flex-col justify-between border border-emerald-500/20 hover:border-emerald-500/40"
               >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <p className="text-sm text-muted-foreground font-medium group-hover:text-emerald-500 transition-colors">
-                      Deposit Funds
-                    </p>
-                    <p className="text-2xl font-bold bg-gradient-to-r from-emerald-500 to-green-500 bg-clip-text text-transparent mt-2 group-hover:animate-float">
-                      →
-                    </p>
+                <div>
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <p className="text-sm text-muted-foreground font-medium group-hover:text-emerald-500 transition-colors">
+                        Deposit Funds
+                      </p>
+                    </div>
+                    <Wallet
+                      className="text-emerald-500/50 group-hover:text-emerald-500 transition-all group-hover:scale-110"
+                      size={24}
+                    />
                   </div>
-                  <Wallet
-                    className="text-emerald-500/50 group-hover:text-emerald-500 transition-all group-hover:scale-110"
-                    size={24}
-                  />
+                  <div className="mb-4">
+                    <p className="text-xs text-muted-foreground mb-1">Add funds to invest</p>
+                    <p className="text-xl font-bold text-emerald-500">${displayBalance.mainWallet.toFixed(2)}</p>
+                    <p className="text-xs text-muted-foreground mt-1">Main Wallet Balance</p>
+                  </div>
                 </div>
-                <p className="text-xs text-muted-foreground mt-4 group-hover:text-foreground transition-colors">
-                  Add funds to your account
-                </p>
+                <button className="w-full py-2 px-3 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/30 text-emerald-500 font-semibold rounded-lg transition-all group-hover:border-emerald-500 text-sm">
+                  Deposit Now →
+                </button>
               </GlassCard>
             </button>
           </div>
@@ -180,23 +186,27 @@ export default function Dashboard() {
                 heavy
                 className="p-6 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 hover:from-blue-500/20 hover:to-cyan-500/10 transition-all hover:scale-105 h-full flex flex-col justify-between border border-blue-500/20 hover:border-blue-500/40"
               >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <p className="text-sm text-muted-foreground font-medium group-hover:text-blue-500 transition-colors">
-                      Withdraw Profit
-                    </p>
-                    <p className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent mt-2 group-hover:animate-float">
-                      →
-                    </p>
+                <div>
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <p className="text-sm text-muted-foreground font-medium group-hover:text-blue-500 transition-colors">
+                        Withdraw Profit
+                      </p>
+                    </div>
+                    <TrendingUp
+                      className="text-blue-500/50 group-hover:text-blue-500 transition-all group-hover:scale-110"
+                      size={24}
+                    />
                   </div>
-                  <TrendingUp
-                    className="text-blue-500/50 group-hover:text-blue-500 transition-all group-hover:scale-110"
-                    size={24}
-                  />
+                  <div className="mb-4">
+                    <p className="text-xs text-muted-foreground mb-1">Your earnings available</p>
+                    <p className="text-xl font-bold text-sky-400">${displayBalance.profitBalance.toFixed(2)}</p>
+                    <p className="text-xs text-muted-foreground mt-1">Profit Balance</p>
+                  </div>
                 </div>
-                <p className="text-xs text-muted-foreground mt-4 group-hover:text-foreground transition-colors">
-                  Withdraw your earnings
-                </p>
+                <button className="w-full py-2 px-3 bg-blue-500/20 hover:bg-blue-500/30 border border-blue-500/30 text-blue-400 font-semibold rounded-lg transition-all group-hover:border-blue-500 text-sm">
+                  Withdraw →
+                </button>
               </GlassCard>
             </button>
           </div>
@@ -214,23 +224,27 @@ export default function Dashboard() {
                 heavy
                 className="p-6 bg-gradient-to-br from-amber-500/10 to-orange-500/5 hover:from-amber-500/20 hover:to-orange-500/10 transition-all hover:scale-105 h-full flex flex-col justify-between border border-amber-500/20 hover:border-amber-500/40"
               >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <p className="text-sm text-muted-foreground font-medium group-hover:text-amber-500 transition-colors">
-                      Referral Program
-                    </p>
-                    <p className="text-2xl font-bold bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent mt-2 group-hover:animate-float">
-                      →
-                    </p>
+                <div>
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <p className="text-sm text-muted-foreground font-medium group-hover:text-amber-500 transition-colors">
+                        Referral Program
+                      </p>
+                    </div>
+                    <Gift
+                      className="text-amber-500/50 group-hover:text-amber-500 transition-all group-hover:scale-110"
+                      size={24}
+                    />
                   </div>
-                  <Gift
-                    className="text-amber-500/50 group-hover:text-amber-500 transition-all group-hover:scale-110"
-                    size={24}
-                  />
+                  <div className="mb-4">
+                    <p className="text-xs text-muted-foreground mb-1">Your referral earnings</p>
+                    <p className="text-xl font-bold text-amber-400">${displayBalance.referralBonus.toFixed(2)}</p>
+                    <p className="text-xs text-muted-foreground mt-1">Bonus Earned</p>
+                  </div>
                 </div>
-                <p className="text-xs text-muted-foreground mt-4 group-hover:text-foreground transition-colors">
-                  Earn by referring friends
-                </p>
+                <button className="w-full py-2 px-3 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/30 text-amber-400 font-semibold rounded-lg transition-all group-hover:border-amber-500 text-sm">
+                  Invite Friends →
+                </button>
               </GlassCard>
             </button>
           </div>

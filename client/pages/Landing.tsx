@@ -284,7 +284,7 @@ export default function Landing() {
         animate={{ opacity: [0.9, 1, 0.9] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       >
-        Professional Trading Platform
+        Professional Investment Platform
       </motion.h1>
 
       <motion.p
@@ -376,7 +376,7 @@ export default function Landing() {
               {[
                 {
                   title: "Active Customers",
-                  value: "1,000+",
+                  value: "15974+",
                   icon: "👥",
                   color: "from-blue-500 to-cyan-500",
                 },
@@ -962,7 +962,7 @@ export default function Landing() {
                     TradePro
                   </h3>
                 </div>
-                <p className="text-xs text-slate-500 mb-1">Professional Trading Platform</p>
+                <p className="text-xs text-slate-500 mb-1">Professional Investment Platform</p>
                 <p className="text-sm text-slate-400 mb-6 leading-relaxed">
                   Grow your wealth with our secure, transparent, and user-friendly investment platform trusted by thousands worldwide.
                 </p>
