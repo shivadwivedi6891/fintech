@@ -56,14 +56,14 @@ export default function Landing() {
   ];
 
   const bgClasses = isDarkMode
-    ? "bg-slate-950 text-slate-50"
+    ? "bg-[#050A14] text-white"
     : "bg-gradient-to-b from-white to-slate-50 text-slate-900";
 
   const cardClasses = isDarkMode
-    ? "bg-slate-900/60 border-slate-700/30 text-slate-50"
+    ? "bg-[#0F2137]/60 border-white/10 text-white"
     : "bg-white border-slate-200/80 text-slate-900 shadow-lg";
 
-  const mutedClasses = isDarkMode ? "text-slate-400" : "text-slate-700";
+  const mutedClasses = isDarkMode ? "text-[#B8C8D8]" : "text-slate-700";
 
   return (
     <div
@@ -76,16 +76,16 @@ export default function Landing() {
       <div className="relative z-10">
         {/* Navbar */}
         <nav
-          className={`fixed top-0 left-0 right-0 ${isDarkMode ? "bg-slate-950/95" : "bg-white/95"} backdrop-blur-xl ${isDarkMode ? "border-slate-800/50" : "border-slate-200 shadow-sm"} border-b z-50 transition-colors duration-300`}
+          className={`fixed top-0 left-0 right-0 ${isDarkMode ? "bg-[#0A1628]/95" : "bg-white/95"} backdrop-blur-xl ${isDarkMode ? "border-white/[0.07]" : "border-slate-200 shadow-sm"} border-b z-50 transition-colors duration-300`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               {/* Logo */}
               <div className="flex items-center gap-2">
-                <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                <div className="text-2xl font-bold bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] bg-clip-text text-transparent">
                   TradePro
                 </div>
-                <Shield className={`w-4 h-4 ${isDarkMode ? "text-blue-400" : "text-blue-600"}`} />
+                <Shield className={`w-4 h-4 ${isDarkMode ? "text-[#C9A84C]" : "text-[#A8893C]"}`} />
               </div>
 
               {/* Desktop Menu */}
@@ -96,9 +96,9 @@ export default function Landing() {
                     onClick={() => scrollToSection(link.id)}
                     className={`text-sm font-semibold transition-colors duration-200 ${
                       activeSection === link.id
-                        ? isDarkMode ? "text-blue-400" : "text-blue-600"
+                        ? isDarkMode ? "text-[#C9A84C]" : "text-[#A8893C]"
                         : isDarkMode
-                          ? "text-slate-400 hover:text-slate-200"
+                          ? "text-[#B8C8D8] hover:text-white"
                           : "text-slate-700 hover:text-slate-900"
                     }`}
                   >
@@ -109,7 +109,7 @@ export default function Landing() {
                 {/* Dark Mode Toggle */}
                 <button
                   onClick={() => setIsDarkMode(!isDarkMode)}
-                  className={`p-2.5 rounded-xl transition-all duration-200 ${isDarkMode ? "bg-slate-800 text-amber-400 hover:bg-slate-700" : "bg-blue-50 text-blue-600 hover:bg-blue-100 shadow-sm"}`}
+                  className={`p-2.5 rounded-xl transition-all duration-200 ${isDarkMode ? "bg-[#0F2137] text-[#C9A84C] hover:bg-[#122540]" : "bg-amber-50 text-[#A8893C] hover:bg-amber-100 shadow-sm"}`}
                   title="Toggle dark mode"
                 >
                   {isDarkMode ? (
@@ -121,7 +121,7 @@ export default function Landing() {
 
                 <button
                   onClick={() => navigate("/login")}
-                  className={`px-6 py-2.5 ${isDarkMode ? "bg-blue-600 hover:bg-blue-700" : "bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 shadow-md shadow-blue-500/30"} text-white font-bold rounded-xl transition-all duration-200`}
+                  className={`px-6 py-2.5 ${isDarkMode ? "bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] hover:opacity-90" : "bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] hover:opacity-90 shadow-md shadow-[#C9A84C]/30"} text-[#050A14] font-bold rounded-xl transition-all duration-200`}
                 >
                   Login
                 </button>
@@ -131,7 +131,7 @@ export default function Landing() {
               <div className="md:hidden flex items-center gap-3">
                 <button
                   onClick={() => setIsDarkMode(!isDarkMode)}
-                  className={`p-2 rounded-lg transition-all duration-200 ${isDarkMode ? "bg-slate-800 text-amber-400" : "bg-blue-50 text-blue-600 shadow-sm"}`}
+                  className={`p-2 rounded-lg transition-all duration-200 ${isDarkMode ? "bg-[#0F2137] text-[#C9A84C]" : "bg-amber-50 text-[#A8893C] shadow-sm"}`}
                 >
                   {isDarkMode ? (
                     <Sun className="w-5 h-5" />
@@ -155,7 +155,7 @@ export default function Landing() {
             {/* Mobile Menu */}
             {isMenuOpen && (
               <div
-                className={`md:hidden pb-4 ${isDarkMode ? "border-slate-800/50" : "border-slate-200 bg-slate-50/50"} border-t mt-2`}
+                className={`md:hidden pb-4 ${isDarkMode ? "border-white/[0.07]" : "border-slate-200 bg-slate-50/50"} border-t mt-2`}
               >
                 {navLinks.map((link) => (
                   <button
@@ -163,9 +163,9 @@ export default function Landing() {
                     onClick={() => scrollToSection(link.id)}
                     className={`block w-full text-left px-4 py-2.5 text-sm font-semibold rounded-lg transition-colors duration-200 ${
                       activeSection === link.id
-                        ? isDarkMode ? "text-blue-400 bg-blue-500/10" : "text-blue-600 bg-blue-50"
+                        ? isDarkMode ? "text-[#C9A84C] bg-[#C9A84C]/10" : "text-[#A8893C] bg-amber-50"
                         : isDarkMode
-                          ? "text-slate-400 hover:bg-slate-800/50"
+                          ? "text-[#B8C8D8] hover:bg-[#0F2137]/50"
                           : "text-slate-700 hover:bg-slate-100"
                     }`}
                   >
@@ -174,7 +174,7 @@ export default function Landing() {
                 ))}
                 <button
                   onClick={() => navigate("/login")}
-                  className={`block w-full text-left px-4 py-3 mt-2 ${isDarkMode ? "bg-blue-600 hover:bg-blue-700" : "bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 shadow-md"} text-white font-bold rounded-xl transition-all duration-200`}
+                  className={`block w-full text-left px-4 py-3 mt-2 ${isDarkMode ? "bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] hover:opacity-90" : "bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] hover:opacity-90 shadow-md"} text-[#050A14] font-bold rounded-xl transition-all duration-200`}
                 >
                   Login
                 </button>
@@ -191,13 +191,13 @@ export default function Landing() {
   id="intro"
   className={`pt-24 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center relative overflow-hidden transition-colors duration-500 ${
     isDarkMode
-      ? "bg-gradient-to-br from-[#050b18] via-[#0a192f] to-[#112240]"
-      : "bg-gradient-to-br from-white via-blue-50/50 to-cyan-50/30"
+      ? "bg-gradient-to-br from-[#050A14]/40 via-[#0A1628]/40 to-[#0D1B2E]/40"
+      : "bg-gradient-to-br from-white/50 via-amber-50/30 to-orange-50/20"
   }`}
 >
   {/* Glassy Grid Overlay - Retained & Re-colored to Blue */}
   <motion.div
-    className="absolute inset-0 opacity-[0.1] pointer-events-none"
+    className="absolute inset-0 opacity-[0.2] pointer-events-none"
     animate={{
       backgroundPosition: ["0% 0%", "100% 100%"],
     }}
@@ -208,8 +208,8 @@ export default function Landing() {
       ease: "linear",
     }}
     style={{
-      backgroundImage: `linear-gradient(0deg, ${isDarkMode ? "rgba(56, 189, 248, 0.2)" : "rgba(37, 99, 235, 0.1)"} 1px, transparent 1px), 
-                       linear-gradient(90deg, ${isDarkMode ? "rgba(56, 189, 248, 0.2)" : "rgba(37, 99, 235, 0.1)"} 1px, transparent 1px)`,
+      backgroundImage: `linear-gradient(0deg, ${isDarkMode ? "rgba(201, 168, 76, 0.3)" : "rgba(168, 137, 60, 0.12)"} 1px, transparent 1px), 
+                       linear-gradient(90deg, ${isDarkMode ? "rgba(201, 168, 76, 0.3)" : "rgba(168, 137, 60, 0.12)"} 1px, transparent 1px)`,
       backgroundSize: "80px 80px",
     }}
   />
@@ -219,7 +219,7 @@ export default function Landing() {
     className={`absolute inset-0 overflow-hidden pointer-events-none ${isDarkMode ? "opacity-40" : "opacity-20"}`}
   >
     <motion.div
-      className="absolute top-20 left-10 w-80 h-80 bg-blue-600 rounded-full mix-blend-screen filter blur-[120px]"
+      className="absolute top-20 left-10 w-80 h-80 bg-[#C9A84C] rounded-full mix-blend-screen filter blur-[120px]"
       animate={{
         y: [0, -40, 0],
         x: [0, 30, 0],
@@ -227,7 +227,7 @@ export default function Landing() {
       transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
     />
     <motion.div
-      className="absolute -bottom-8 right-10 w-96 h-96 bg-indigo-500 rounded-full mix-blend-screen filter blur-[140px]"
+      className="absolute -bottom-8 right-10 w-96 h-96 bg-[#A8893C] rounded-full mix-blend-screen filter blur-[140px]"
       animate={{
         y: [0, 40, 0],
         x: [0, -30, 0],
@@ -245,8 +245,8 @@ export default function Landing() {
   >
     {[20, 50, 80, 110, 140].map((x, i) => (
       <g key={x}>
-        <line x1={x} y1={20 + (i*10)} x2={x} y2={90 + (i*5)} stroke={i % 2 === 0 ? "#38bdf8" : "#6366f1"} strokeWidth="2" />
-        <rect x={x-8} y={35 + (i*5)} width="16" height={30 + (i*2)} fill={i % 2 === 0 ? "#38bdf8" : "#6366f1"} opacity="0.4" />
+        <line x1={x} y1={20 + (i*10)} x2={x} y2={90 + (i*5)} stroke={i % 2 === 0 ? "#E2BC6A" : "#A8893C"} strokeWidth="2" />
+        <rect x={x-8} y={35 + (i*5)} width="16" height={30 + (i*2)} fill={i % 2 === 0 ? "#E2BC6A" : "#A8893C"} opacity="0.4" />
       </g>
     ))}
   </motion.svg>
@@ -261,11 +261,11 @@ export default function Landing() {
     <polyline
       points="10,100 35,85 60,70 85,55 110,45 135,35 160,20 185,15"
       fill="none"
-      stroke={isDarkMode ? "#0ea5e9" : "#2563eb"}
+      stroke={isDarkMode ? "#C9A84C" : "#A8893C"}
       strokeWidth="2.5"
       strokeDasharray="4 2"
     />
-    <circle cx="185" cy="15" r="4" fill="#38bdf8" className="animate-pulse" />
+    <circle cx="185" cy="15" r="4" fill="#C9A84C" className="animate-pulse" />
   </motion.svg>
 
   {/* Main Content */}
@@ -276,24 +276,21 @@ export default function Landing() {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <motion.h1
-        className={`text-5xl sm:text-6xl lg:text-7xl font-black mb-6 ${
-          isDarkMode 
-            ? "bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent" 
-            : "text-slate-900"
-        }`}
+        className={`text-5xl sm:text-6xl lg:text-7xl font-black mb-6`}
         animate={{ opacity: [0.9, 1, 0.9] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       >
-        Professional Trading Platform
+        <span className={isDarkMode ? "text-white" : "text-slate-900"}>Professional </span>
+        <span className="bg-gradient-to-r from-[#E2BC6A] to-[#C9A84C] bg-clip-text text-transparent">Investment Platform</span>
       </motion.h1>
 
       <motion.p
-        className={`text-xl sm:text-2xl ${isDarkMode ? "text-slate-400" : "text-slate-700 font-medium"} mb-8 max-w-2xl mx-auto leading-relaxed`}
+        className={`text-xl sm:text-2xl ${isDarkMode ? "text-[#B8C8D8]" : "text-slate-700 font-medium"} mb-8 max-w-2xl mx-auto leading-relaxed`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
       >
-        Grow your wealth with our <span className={isDarkMode ? "text-blue-400" : "text-blue-600 font-semibold"}>secure</span>, <span className={isDarkMode ? "text-cyan-400" : "text-cyan-600 font-semibold"}>transparent</span>, and <span className={isDarkMode ? "text-blue-400" : "text-blue-600 font-semibold"}>user-friendly</span> investment platform. Trusted by thousands of traders worldwide.
+        Grow your wealth with our <span className={isDarkMode ? "text-[#C9A84C]" : "text-[#A8893C] font-semibold"}>secure</span>, <span className={isDarkMode ? "text-[#E2BC6A]" : "text-[#A8893C] font-semibold"}>transparent</span>, and <span className={isDarkMode ? "text-[#C9A84C]" : "text-[#A8893C] font-semibold"}>user-friendly</span> investment platform. Trusted by thousands of traders worldwide.
       </motion.p>
 
       <motion.div
@@ -305,10 +302,10 @@ export default function Landing() {
         {/* Primary Button: Electric Blue */}
         <motion.button
           onClick={() => navigate("/login")}
-          className={`px-8 py-4 ${isDarkMode ? "bg-blue-600 hover:bg-blue-500" : "bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 shadow-xl shadow-blue-500/30"} text-white font-bold rounded-xl transition-all duration-300 text-lg`}
+          className={`px-8 py-4 ${isDarkMode ? "bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] hover:opacity-90" : "bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] hover:opacity-90 shadow-xl shadow-[#C9A84C]/30"} text-[#050A14] font-bold rounded-xl transition-all duration-300 text-lg`}
           whileHover={{
             y: -4,
-            boxShadow: isDarkMode ? "0 20px 40px rgba(37, 99, 235, 0.3)" : "0 25px 50px rgba(37, 99, 235, 0.4)",
+            boxShadow: isDarkMode ? "0 20px 40px rgba(201, 168, 76, 0.3)" : "0 25px 50px rgba(201, 168, 76, 0.4)",
           }}
           whileTap={{ scale: 0.95 }}
         >
@@ -320,12 +317,12 @@ export default function Landing() {
           onClick={() => scrollToSection("services")}
           className={`px-8 py-4 border-2 backdrop-blur-sm ${
             isDarkMode 
-              ? "border-blue-500/50 hover:border-blue-400 text-blue-400 bg-blue-500/5" 
-              : "border-blue-600 hover:border-blue-700 text-blue-600 bg-white/50 shadow-lg"
+              ? "border-[#C9A84C]/40 hover:border-[#C9A84C] text-[#C9A84C] bg-[#C9A84C]/5" 
+              : "border-[#A8893C] hover:border-[#A8893C] text-[#A8893C] bg-white/50 shadow-lg"
           } font-bold rounded-xl transition-all duration-300 text-lg`}
           whileHover={{
             y: -4,
-            backgroundColor: isDarkMode ? "rgba(59, 130, 246, 0.1)" : "rgba(255, 255, 255, 0.9)",
+            backgroundColor: isDarkMode ? "rgba(201, 168, 76, 0.1)" : "rgba(255, 255, 255, 0.9)",
           }}
           whileTap={{ scale: 0.95 }}
         >
@@ -342,7 +339,7 @@ export default function Landing() {
     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
   >
     <ChevronDown
-      className={`w-6 h-6 ${isDarkMode ? "text-blue-500/50" : "text-blue-600/50"}`}
+      className={`w-6 h-6 ${isDarkMode ? "text-[#C9A84C]/50" : "text-[#A8893C]/50"}`}
     />
   </motion.div>
 </section>
@@ -353,17 +350,17 @@ export default function Landing() {
           id="portfolio"
           className={`py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
             isDarkMode
-              ? "bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900"
-              : "bg-gradient-to-b from-white via-slate-50/80 to-white"
+              ? "bg-gradient-to-b from-[#0A1628]/50 via-[#0D1B2E]/50 to-[#0A1628]/50"
+              : "bg-gradient-to-b from-white/50 via-slate-50/40 to-white/50"
           }`}
         >
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 animate-slide-up">
               <h2
-                className={`text-4xl sm:text-5xl font-black mb-4 ${isDarkMode ? "text-slate-100" : "text-slate-900"}`}
+                className={`text-4xl sm:text-5xl font-black mb-4 ${isDarkMode ? "text-white" : "text-slate-900"}`}
               >
                 Our Platform{" "}
-                <span className={`${isDarkMode ? "bg-gradient-to-r from-amber-500 to-orange-500" : "bg-gradient-to-r from-blue-600 to-cyan-600"} bg-clip-text text-transparent`}>
+                <span className={`bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] bg-clip-text text-transparent`}>
                   in Numbers
                 </span>
               </h2>
@@ -378,32 +375,32 @@ export default function Landing() {
                   title: "Active Customers",
                   value: "1,000+",
                   icon: "👥",
-                  color: "from-blue-500 to-cyan-500",
+                  color: "from-[#C9A84C] to-[#E2BC6A]",
                 },
                 {
                   title: "Funds Managed",
                   value: "$250k+",
                   icon: "💰",
-                  color: "from-emerald-500 to-green-500",
+                  color: "from-[#A8893C] to-[#C9A84C]",
                 },
                 {
                   title: "Monthly Growth",
                   value: "7-12%",
                   icon: "📈",
-                  color: "from-amber-500 to-orange-500",
+                  color: "from-[#E2BC6A] to-[#C9A84C]",
                 },
                 {
                   title: "Years of Trust",
                   value: "2+",
                   icon: "🏆",
-                  color: "from-purple-500 to-pink-500",
+                  color: "from-[#C9A84C] to-[#A8893C]",
                 },
               ].map((stat, index) => (
                 <div
                   key={index}
                   className={`group relative p-8 rounded-2xl border backdrop-blur-sm hover:scale-105 transition-all duration-300 cursor-pointer ${
                     isDarkMode
-                      ? "bg-slate-800/40 border-slate-700/50 hover:bg-slate-800/60"
+                      ? "bg-[#0F2137]/40 border-white/10 hover:bg-[#0F2137]/60"
                       : "bg-white border-slate-200/80 hover:border-slate-300 shadow-xl hover:shadow-2xl"
                   }`}
                 >
@@ -440,17 +437,17 @@ export default function Landing() {
           id="services"
           className={`py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
             isDarkMode
-              ? "bg-gradient-to-b from-slate-950 via-blue-950/30 to-slate-950"
-              : "bg-gradient-to-b from-slate-50 via-blue-50/30 to-slate-50"
+              ? "bg-gradient-to-b from-[#050A14]/50 via-[#0A1628]/50 to-[#050A14]/50"
+              : "bg-gradient-to-b from-slate-50/50 via-amber-50/20 to-slate-50/50"
           }`}
         >
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 animate-slide-up">
               <h2
-                className={`text-4xl sm:text-5xl font-bold mb-4 ${isDarkMode ? "text-slate-100" : "text-slate-900"}`}
+                className={`text-4xl sm:text-5xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-slate-900"}`}
               >
                 Flexible Investment{" "}
-                <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] bg-clip-text text-transparent">
                   Plans
                 </span>
               </h2>
@@ -464,14 +461,14 @@ export default function Landing() {
               <div
                 className={`relative p-8 rounded-2xl overflow-hidden group transition-all duration-300 hover:scale-105 border-2 ${
                   isDarkMode
-                    ? "bg-slate-800/40 border-slate-700/50 hover:bg-slate-800/60"
-                    : "bg-white border-blue-200/80 hover:border-blue-300 shadow-xl hover:shadow-2xl"
+                    ? "bg-[#0F2137]/40 border-white/10 hover:bg-[#0F2137]/60"
+                    : "bg-white border-amber-200/80 hover:border-amber-300 shadow-xl hover:shadow-2xl"
                 }`}
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${isDarkMode ? "from-blue-500/10" : "from-blue-50/80"} to-transparent pointer-events-none`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${isDarkMode ? "from-[#C9A84C]/10" : "from-amber-50/80"} to-transparent pointer-events-none`} />
                 <div className="relative z-10">
                   <h3
-                    className={`text-2xl font-black mb-2 ${isDarkMode ? "text-slate-100" : "text-slate-900"}`}
+                    className={`text-2xl font-black mb-2 ${isDarkMode ? "text-white" : "text-slate-900"}`}
                   >
                     Starter Plan
                   </h3>
@@ -479,7 +476,7 @@ export default function Landing() {
                     Perfect for beginners starting their journey
                   </p>
                   <div className="mb-6">
-                    <span className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                    <span className="text-4xl font-bold bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] bg-clip-text text-transparent">
                       5%
                     </span>
                     <span className={`${mutedClasses} ml-2`}>
@@ -487,28 +484,28 @@ export default function Landing() {
                     </span>
                   </div>
                   <div
-                    className={`rounded-xl p-4 mb-6 border ${isDarkMode ? "bg-slate-900/50 border-blue-500/20" : "bg-blue-50/80 border-blue-200"}`}
+                    className={`rounded-xl p-4 mb-6 border ${isDarkMode ? "bg-[#0A1628]/50 border-[#C9A84C]/20" : "bg-amber-50/80 border-amber-200"}`}
                   >
                     <p
                       className={`text-sm font-bold ${isDarkMode ? "text-slate-300" : "text-slate-800"}`}
                     >
                       Minimum Investment:{" "}
-                      <span className={isDarkMode ? "text-blue-400" : "text-blue-600"}>Less than $999</span>
+                      <span className={isDarkMode ? "text-[#C9A84C]" : "text-[#A8893C]"}>Less than $999</span>
                     </p>
                   </div>
                   <ul
-                    className={`space-y-3 mb-8 ${isDarkMode ? "text-slate-300" : "text-slate-700"} font-medium`}
+                    className={`space-y-3 mb-8 ${isDarkMode ? "text-[#B8C8D8]" : "text-slate-700"} font-medium`}
                   >
                     <li className="flex items-center gap-2">
-                      <span className={isDarkMode ? "text-blue-400" : "text-blue-600"}>✓</span> Low minimum
+                      <span className={isDarkMode ? "text-[#C9A84C]" : "text-[#A8893C]"}>✓</span> Low minimum
                       deposit
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className={isDarkMode ? "text-blue-400" : "text-blue-600"}>✓</span> Easy to get
+                      <span className={isDarkMode ? "text-[#C9A84C]" : "text-[#A8893C]"}>✓</span> Easy to get
                       started
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className={isDarkMode ? "text-blue-400" : "text-blue-600"}>✓</span> 24/7 customer
+                      <span className={isDarkMode ? "text-[#C9A84C]" : "text-[#A8893C]"}>✓</span> 24/7 customer
                       support
                     </li>
                   </ul>
@@ -516,8 +513,8 @@ export default function Landing() {
                     onClick={() => navigate("/login")}
                     className={`w-full px-6 py-3.5 font-bold rounded-xl transition-all duration-200 border-2 ${
                       isDarkMode
-                        ? "border-blue-500 text-blue-400 hover:bg-blue-500/10"
-                        : "border-blue-600 text-blue-600 hover:bg-blue-50 shadow-md"
+                        ? "border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C]/10"
+                        : "border-[#A8893C] text-[#A8893C] hover:bg-amber-50 shadow-md"
                     }`}
                   >
                     Get Started
@@ -529,16 +526,16 @@ export default function Landing() {
               <div
                 className={`relative p-8 rounded-2xl overflow-hidden group transition-all duration-300 hover:scale-105 border-2 md:scale-105 ${
                   isDarkMode
-                    ? "bg-gradient-to-br from-amber-500/10 to-orange-500/10 border-amber-500/50 hover:bg-gradient-to-br hover:from-amber-500/20 hover:to-orange-500/20"
-                    : "bg-gradient-to-br from-amber-50/80 to-orange-50/80 border-amber-400/70 hover:border-amber-500 shadow-2xl hover:shadow-3xl"
+                    ? "bg-gradient-to-br from-[#C9A84C]/10 to-[#A8893C]/10 border-[#C9A84C]/50 hover:bg-gradient-to-br hover:from-[#C9A84C]/20 hover:to-[#A8893C]/20"
+                    : "bg-gradient-to-br from-amber-50/80 to-orange-50/80 border-[#C9A84C]/70 hover:border-[#C9A84C] shadow-2xl hover:shadow-3xl"
                 }`}
               >
-                <div className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="absolute top-4 right-4 bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] text-[#050A14] px-3 py-1 rounded-full text-xs font-bold">
                   ⭐ POPULAR
                 </div>
                 <div className="relative z-10">
                   <h3
-                    className={`text-2xl font-black mb-2 ${isDarkMode ? "text-slate-100" : "text-slate-900"}`}
+                    className={`text-2xl font-black mb-2 ${isDarkMode ? "text-white" : "text-slate-900"}`}
                   >
                     Premium Plan
                   </h3>
@@ -546,7 +543,7 @@ export default function Landing() {
                     For serious investors seeking maximum returns
                   </p>
                   <div className="mb-6">
-                    <span className="text-4xl font-bold bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">
+                    <span className="text-4xl font-bold bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] bg-clip-text text-transparent">
                       7%
                     </span>
                     <span className={`${mutedClasses} ml-2`}>
@@ -554,35 +551,35 @@ export default function Landing() {
                     </span>
                   </div>
                   <div
-                    className={`rounded-xl p-4 mb-6 border ${isDarkMode ? "bg-slate-900/50 border-amber-500/30" : "bg-orange-50/80 border-orange-200"}`}
+                    className={`rounded-xl p-4 mb-6 border ${isDarkMode ? "bg-[#0A1628]/50 border-[#C9A84C]/30" : "bg-amber-50/80 border-amber-200"}`}
                   >
                     <p
                       className={`text-sm font-bold ${isDarkMode ? "text-slate-300" : "text-slate-800"}`}
                     >
                       Minimum Investment:{" "}
-                      <span className={isDarkMode ? "text-amber-400" : "text-amber-600"}>≥ $1000</span>
+                      <span className={isDarkMode ? "text-[#C9A84C]" : "text-[#A8893C]"}>≥ $1000</span>
                     </p>
                   </div>
                   <ul
-                    className={`space-y-3 mb-8 ${isDarkMode ? "text-slate-300" : "text-slate-700"} font-medium`}
+                    className={`space-y-3 mb-8 ${isDarkMode ? "text-[#B8C8D8]" : "text-slate-700"} font-medium`}
                   >
                     <li className="flex items-center gap-2">
-                      <span className={isDarkMode ? "text-amber-400" : "text-amber-600"}>✓</span> Higher returns
+                      <span className={isDarkMode ? "text-[#C9A84C]" : "text-[#A8893C]"}>✓</span> Higher returns
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className={isDarkMode ? "text-amber-400" : "text-amber-600"}>✓</span> Priority support
+                      <span className={isDarkMode ? "text-[#C9A84C]" : "text-[#A8893C]"}>✓</span> Priority support
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className={isDarkMode ? "text-amber-400" : "text-amber-600"}>✓</span> Advanced
+                      <span className={isDarkMode ? "text-[#C9A84C]" : "text-[#A8893C]"}>✓</span> Advanced
                       analytics
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className={isDarkMode ? "text-amber-400" : "text-amber-600"}>✓</span> Personal advisor
+                      <span className={isDarkMode ? "text-[#C9A84C]" : "text-[#A8893C]"}>✓</span> Personal advisor
                     </li>
                   </ul>
                   <button
                     onClick={() => navigate("/login")}
-                    className="w-full px-6 py-3.5 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-black rounded-xl transition-all duration-200 shadow-xl hover:shadow-amber-500/50"
+                    className="w-full px-6 py-3.5 bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] hover:opacity-90 text-[#050A14] font-black rounded-xl transition-all duration-200 shadow-xl hover:shadow-[#C9A84C]/50"
                   >
                     Start Premium
                   </button>
@@ -597,8 +594,8 @@ export default function Landing() {
           id="about"
           className={`py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
             isDarkMode
-              ? "bg-gradient-to-b from-slate-900 via-blue-950/30 to-slate-900"
-              : "bg-gradient-to-b from-slate-50/50 via-purple-50/30 to-slate-50/50"
+              ? "bg-gradient-to-b from-[#0A1628]/50 via-[#0D1B2E]/50 to-[#0A1628]/50"
+              : "bg-gradient-to-b from-slate-50/30 via-amber-50/20 to-slate-50/30"
           }`}
         >
           <div className="max-w-6xl mx-auto">
@@ -606,17 +603,17 @@ export default function Landing() {
               {/* Left: About Text */}
               <div className="animate-slide-up">
                 <h2
-                  className={`text-4xl sm:text-5xl font-bold mb-6 ${isDarkMode ? "text-slate-100" : "text-slate-900"}`}
+                  className={`text-4xl sm:text-5xl font-bold mb-6 ${isDarkMode ? "text-white" : "text-slate-900"}`}
                 >
                   About{" "}
-                  <span className="bg-gradient-to-r from-blue-900 to-blue-400 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] bg-clip-text text-transparent">
                     TradePro
                   </span>
                 </h2>
 
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-blue-500 to-blue-300 bg-clip-text text-transparent">
+                    <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-[#C9A84C] to-[#E2BC6A] bg-clip-text text-transparent">
                       Our Story
                     </h3>
                     <p className={`${mutedClasses} leading-relaxed`}>
@@ -629,7 +626,7 @@ export default function Landing() {
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold mb-3 bg-gradient-to-r  from-blue-500 to-blue-300 bg-clip-text text-transparent">
+                    <h3 className="text-xl font-bold mb-3 bg-gradient-to-r  from-[#C9A84C] to-[#E2BC6A] bg-clip-text text-transparent">
                       Our Mission
                     </h3>
                     <p className={`${mutedClasses} leading-relaxed`}>
@@ -641,7 +638,7 @@ export default function Landing() {
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold mb-3 bg-gradient-to-r  from-blue-500 to-blue-300 bg-clip-text text-transparent">
+                    <h3 className="text-xl font-bold mb-3 bg-gradient-to-r  from-[#C9A84C] to-[#E2BC6A] bg-clip-text text-transparent">
                       Our Vision
                     </h3>
                     <p className={`${mutedClasses} leading-relaxed`}>
@@ -656,7 +653,7 @@ export default function Landing() {
               {/* Right: Team Overview */}
               <div className="animate-fade-in">
                 <h3
-                  className={`text-2xl font-bold mb-8 text-center lg:text-left ${isDarkMode ? "text-slate-100" : "text-slate-900"}`}
+                  className={`text-2xl font-bold mb-8 text-center lg:text-left ${isDarkMode ? "text-white" : "text-slate-900"}`}
                 >
                   Leadership Team
                 </h3>
@@ -666,32 +663,32 @@ export default function Landing() {
                       name: "Sarah Johnson",
                       role: "Chief Executive Officer",
                       bio: "15+ years in fintech with proven track record",
-                      color: "from-purple-500 to-pink-500",
+                      color: "from-[#C9A84C] to-[#E2BC6A]",
                     },
                     {
                       name: "Michael Chen",
                       role: "Chief Technology Officer",
                       bio: "Expert in blockchain and secure trading systems",
-                      color: "from-blue-500 to-cyan-500",
+                      color: "from-[#A8893C] to-[#C9A84C]",
                     },
                     {
                       name: "Emma Williams",
                       role: "Head of Customer Relations",
                       bio: "Dedicated to exceptional user experiences",
-                      color: "from-emerald-500 to-green-500",
+                      color: "from-[#E2BC6A] to-[#C9A84C]",
                     },
                     {
                       name: "David Rodriguez",
                       role: "Chief Financial Officer",
                       bio: "Strategic financial planning and compliance expert",
-                      color: "from-amber-500 to-orange-500",
+                      color: "from-[#C9A84C] to-[#A8893C]",
                     },
                   ].map((member, index) => (
                     <div
                       key={index}
                       className={`group relative p-5 rounded-xl border backdrop-blur-sm hover:scale-105 transition-all duration-300 ${
                         isDarkMode
-                          ? "bg-slate-800/40 border-slate-700/50 hover:bg-slate-800/60"
+                          ? "bg-[#0F2137]/40 border-white/10 hover:bg-[#0F2137]/60"
                           : "bg-white border-slate-200/80 hover:border-slate-300 shadow-lg hover:shadow-xl"
                       }`}
                     >
@@ -732,15 +729,15 @@ export default function Landing() {
           id="contact"
           className={`py-20 px-4 sm:px-6 lg:px-8 ${
             isDarkMode
-              ? "bg-slate-900"
-              : "bg-slate-50"
+              ? "bg-[#0A1628]/50"
+              : "bg-slate-50/50"
           }`}
         >
           <div className="max-w-7xl mx-auto">
             <div className="text-left mb-8">
-              <p className="text-blue-400 text-sm font-bold uppercase tracking-wider mb-2">REACH OUT</p>
+              <p className="text-[#C9A84C] text-sm font-bold uppercase tracking-wider mb-2">REACH OUT</p>
               <h2 className={`text-4xl sm:text-5xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-slate-900"}`}>
-                Get in <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Touch</span>
+                Get in <span className="bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] bg-clip-text text-transparent">Touch</span>
               </h2>
               <p className={`${mutedClasses} text-base max-w-2xl`}>
                 Let's discuss how we can help transform your investment journey with innovative solutions.
@@ -752,7 +749,7 @@ export default function Landing() {
               <div
                 className={`rounded-2xl p-8 ${
                   isDarkMode
-                    ? "bg-slate-800/50 border border-slate-700/50"
+                    ? "bg-[#0F2137]/50 border border-white/10"
                     : "bg-white border border-slate-200 shadow-xl"
                 }`}
               >
@@ -770,9 +767,9 @@ export default function Landing() {
                     <input
                       type="text"
                       placeholder="John Doe"
-                      className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${
+                      className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-[#C9A84C] transition-all ${
                         isDarkMode
-                          ? "bg-slate-900/50 border-slate-700 text-slate-100 placeholder-slate-500"
+                          ? "bg-[#0A1628] border-white/10 text-white placeholder-[#3D5068]"
                           : "bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400"
                       }`}
                     />
@@ -784,9 +781,9 @@ export default function Landing() {
                     <input
                       type="email"
                       placeholder="john@example.com"
-                      className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${
+                      className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-[#C9A84C] transition-all ${
                         isDarkMode
-                          ? "bg-slate-900/50 border-slate-700 text-slate-100 placeholder-slate-500"
+                          ? "bg-[#0A1628] border-white/10 text-white placeholder-[#3D5068]"
                           : "bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400"
                       }`}
                     />
@@ -798,9 +795,9 @@ export default function Landing() {
                     <input
                       type="tel"
                       placeholder="+91 98765 43210"
-                      className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${
+                      className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-[#C9A84C] transition-all ${
                         isDarkMode
-                          ? "bg-slate-900/50 border-slate-700 text-slate-100 placeholder-slate-500"
+                          ? "bg-[#0A1628] border-white/10 text-white placeholder-[#3D5068]"
                           : "bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400"
                       }`}
                     />
@@ -812,16 +809,16 @@ export default function Landing() {
                     <textarea
                       placeholder="Tell us about your investment goals..."
                       rows={4}
-                      className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none ${
+                      className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-[#C9A84C] transition-all resize-none ${
                         isDarkMode
-                          ? "bg-slate-900/50 border-slate-700 text-slate-100 placeholder-slate-500"
+                          ? "bg-[#0A1628] border-white/10 text-white placeholder-[#3D5068]"
                           : "bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400"
                       }`}
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full px-6 py-3.5 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-bold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                    className="w-full px-6 py-3.5 bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] hover:opacity-90 text-[#050A14] font-bold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
                   >
                     Send Message
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -846,21 +843,21 @@ export default function Landing() {
                   </h3>
                   <div className="space-y-5">
                     <div className="flex items-start gap-4">
-                      <div className="p-2 rounded-lg bg-blue-500/10">
-                        <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="p-2 rounded-lg bg-[#C9A84C]/10">
+                        <svg className="w-5 h-5 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                       </div>
                       <div>
                         <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${mutedClasses}`}>EMAIL</p>
-                        <p className={`text-sm font-semibold ${isDarkMode ? "text-blue-400" : "text-blue-600"}`}>
+                        <p className={`text-sm font-semibold ${isDarkMode ? "text-[#C9A84C]" : "text-[#A8893C]"}`}>
                           Support@timofx.com
                         </p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
-                      <div className="p-2 rounded-lg bg-cyan-500/10">
-                        <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="p-2 rounded-lg bg-[#C9A84C]/10">
+                        <svg className="w-5 h-5 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
                       </div>
@@ -872,8 +869,8 @@ export default function Landing() {
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
-                      <div className="p-2 rounded-lg bg-blue-500/10">
-                        <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="p-2 rounded-lg bg-[#C9A84C]/10">
+                        <svg className="w-5 h-5 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
@@ -892,27 +889,27 @@ export default function Landing() {
                 <div
                   className={`rounded-2xl p-8 ${
                     isDarkMode
-                      ? "bg-slate-950 border border-slate-800"
+                      ? "bg-[#050A14] border border-white/[0.07]"
                       : "bg-slate-900 border border-slate-800"
                   }`}
                 >
                   <div className="flex items-center gap-2 mb-6">
-                    <Clock className="w-5 h-5 text-blue-400" />
+                    <Clock className="w-5 h-5 text-[#C9A84C]" />
                     <h3 className="text-xl font-bold text-white">
                       Business Hours
                     </h3>
                   </div>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-slate-400">Monday – Friday</span>
-                      <span className="text-sm font-semibold text-blue-400">9:00 AM – 7:00 PM</span>
+                      <span className="text-sm text-[#B8C8D8]">Monday – Friday</span>
+                      <span className="text-sm font-semibold text-[#C9A84C]">9:00 AM – 7:00 PM</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-slate-400">Saturday</span>
-                      <span className="text-sm font-semibold text-cyan-400">10:00 AM – 5:00 PM</span>
+                      <span className="text-sm text-[#B8C8D8]">Saturday</span>
+                      <span className="text-sm font-semibold text-[#E2BC6A]">10:00 AM – 5:00 PM</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-slate-400">Sunday</span>
+                      <span className="text-sm text-[#B8C8D8]">Sunday</span>
                       <span className="text-sm font-semibold text-red-500">Closed</span>
                     </div>
                   </div>
@@ -922,8 +919,8 @@ export default function Landing() {
                 <div
                   className={`rounded-2xl p-6 ${
                     isDarkMode
-                      ? "bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30"
-                      : "bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200"
+                      ? "bg-gradient-to-br from-[#C9A84C]/15 to-[#A8893C]/15 border border-[#C9A84C]/25"
+                      : "bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200"
                   }`}
                 >
                   <h4 className={`text-lg font-bold mb-2 ${isDarkMode ? "text-white" : "text-slate-900"}`}>
@@ -934,7 +931,7 @@ export default function Landing() {
                   </p>
                   <button
                     onClick={() => navigate("/login")}
-                    className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-bold rounded-lg transition-all duration-200 shadow-lg"
+                    className="w-full px-6 py-3 bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] hover:opacity-90 text-[#050A14] font-bold rounded-lg transition-all duration-200 shadow-lg"
                   >
                     Start Trading →
                   </button>
@@ -948,8 +945,8 @@ export default function Landing() {
         <footer
           className={`${
             isDarkMode
-              ? "bg-slate-950 border-slate-800"
-              : "bg-slate-950 border-slate-800"
+              ? "bg-[#050A14]/60 border-white/[0.06]"
+              : "bg-[#050A14]/60 border-white/[0.06]"
           } border-t`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -957,30 +954,30 @@ export default function Landing() {
               {/* Company Info */}
               <div className="col-span-1">
                 <div className="flex items-center gap-2 mb-4">
-                  <TrendingUp className="w-6 h-6 text-blue-500" />
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                  <TrendingUp className="w-6 h-6 text-[#C9A84C]" />
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] bg-clip-text text-transparent">
                     TradePro
                   </h3>
                 </div>
-                <p className="text-xs text-slate-500 mb-1">Professional Trading Platform</p>
-                <p className="text-sm text-slate-400 mb-6 leading-relaxed">
+                <p className="text-xs text-[#7A8FA0] mb-1">Professional Investment Platform</p>
+                <p className="text-sm text-[#B8C8D8] mb-6 leading-relaxed">
                   Grow your wealth with our secure, transparent, and user-friendly investment platform trusted by thousands worldwide.
                 </p>
                 <div className="space-y-3">
-                  <div className="flex items-center gap-2 text-sm text-slate-400">
-                    <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex items-center gap-2 text-sm text-[#B8C8D8]">
+                    <svg className="w-4 h-4 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                     <span>Support@timofx.com</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-400">
-                    <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex items-center gap-2 text-sm text-[#B8C8D8]">
+                    <svg className="w-4 h-4 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                     <span>+49 40 4870 5778</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-400">
-                    <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex items-center gap-2 text-sm text-[#B8C8D8]">
+                    <svg className="w-4 h-4 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
@@ -993,9 +990,9 @@ export default function Landing() {
                     <a
                       key={social}
                       href="#"
-                      className="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-blue-500/30 transition-all duration-200"
+                      className="p-2 rounded-lg bg-[#0A1628] hover:bg-[#0F2137] border border-white/[0.07] hover:border-[#C9A84C]/30 transition-all duration-200"
                     >
-                      <svg className="w-4 h-4 text-slate-400 hover:text-blue-400 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-[#7A8FA0] hover:text-[#C9A84C] transition-colors" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z" />
                       </svg>
                     </a>
@@ -1006,8 +1003,8 @@ export default function Landing() {
               {/* Navigate */}
               <div>
                 <div className="flex items-center gap-2 mb-6">
-                  <div className="w-8 h-0.5 bg-blue-500"></div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-blue-400">NAVIGATE</h4>
+                  <div className="w-8 h-0.5 bg-[#C9A84C]"></div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#C9A84C]">NAVIGATE</h4>
                 </div>
                 <h3 className="text-lg font-bold text-white mb-4">Quick Links</h3>
                 <ul className="space-y-3">
@@ -1015,9 +1012,9 @@ export default function Landing() {
                     <li key={link.id}>
                       <button
                         onClick={() => scrollToSection(link.id)}
-                        className="text-sm text-slate-400 hover:text-blue-400 transition-colors duration-200 flex items-center gap-2 group"
+                        className="text-sm text-[#7A8FA0] hover:text-[#C9A84C] transition-colors duration-200 flex items-center gap-2 group"
                       >
-                        <span className="w-0 group-hover:w-2 h-0.5 bg-blue-400 transition-all duration-200"></span>
+                        <span className="w-0 group-hover:w-2 h-0.5 bg-[#C9A84C] transition-all duration-200"></span>
                         {link.label}
                       </button>
                     </li>
@@ -1028,8 +1025,8 @@ export default function Landing() {
               {/* Services */}
               <div>
                 <div className="flex items-center gap-2 mb-6">
-                  <div className="w-8 h-0.5 bg-cyan-500"></div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-cyan-400">SERVICES</h4>
+                  <div className="w-8 h-0.5 bg-[#E2BC6A]"></div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#E2BC6A]">SERVICES</h4>
                 </div>
                 <h3 className="text-lg font-bold text-white mb-4">Trading Solutions</h3>
                 <ul className="space-y-3">
@@ -1041,9 +1038,9 @@ export default function Landing() {
                     <li key={service}>
                       <a
                         href="#services"
-                        className="text-sm text-slate-400 hover:text-cyan-400 transition-colors duration-200 flex items-center gap-2 group"
+                        className="text-sm text-[#7A8FA0] hover:text-[#E2BC6A] transition-colors duration-200 flex items-center gap-2 group"
                       >
-                        <span className="w-0 group-hover:w-2 h-0.5 bg-cyan-400 transition-all duration-200"></span>
+                        <span className="w-0 group-hover:w-2 h-0.5 bg-[#E2BC6A] transition-all duration-200"></span>
                         {service}
                       </a>
                     </li>
@@ -1054,26 +1051,26 @@ export default function Landing() {
               {/* Newsletter */}
               <div>
                 <div className="flex items-center gap-2 mb-6">
-                  <div className="w-8 h-0.5 bg-blue-500"></div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-blue-400">STAY UPDATED</h4>
+                  <div className="w-8 h-0.5 bg-[#C9A84C]"></div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#C9A84C]">STAY UPDATED</h4>
                 </div>
                 <h3 className="text-lg font-bold text-white mb-4">Newsletter</h3>
-                <p className="text-sm text-slate-400 mb-6">
+                <p className="text-sm text-[#7A8FA0] mb-6">
                   Subscribe to get the latest updates, articles, and news delivered to your inbox.
                 </p>
                 <div className="flex gap-2 mb-6">
                   <input
                     type="email"
                     placeholder="Your email address"
-                    className="flex-1 px-4 py-2.5 bg-slate-900 border border-slate-800 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="flex-1 px-4 py-2.5 bg-[#0A1628] border border-white/[0.07] rounded-lg text-sm text-white placeholder-[#3D5068] focus:outline-none focus:border-[#C9A84C] transition-colors"
                   />
-                  <button className="p-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 rounded-lg transition-colors">
+                  <button className="p-2.5 bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] hover:opacity-90 rounded-lg transition-colors">
                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </button>
                 </div>
-                <div className="flex gap-4 text-xs text-slate-500">
+                <div className="flex gap-4 text-xs text-[#7A8FA0]">
                   
                   <div className="flex items-center gap-1">
                     <span className="text-white font-bold">98%</span> Satisfaction
@@ -1086,17 +1083,17 @@ export default function Landing() {
             </div>
 
             {/* Bottom Bar */}
-            <div className="pt-8 border-t border-slate-800">
+            <div className="pt-8 border-t border-white/[0.06]">
               <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                <p className="text-sm text-slate-500">
-                  © 2026 <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-semibold">TradePro</span>. All rights reserved.
+                <p className="text-sm text-[#7A8FA0]">
+                  © 2026 <span className="bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] bg-clip-text text-transparent font-semibold">TradePro</span>. All rights reserved.
                 </p>
                 <div className="flex gap-6">
                   {["Privacy Policy", "Terms of Service", "Sitemap"].map((item) => (
                     <a
                       key={item}
                       href="#"
-                      className="text-sm text-slate-500 hover:text-blue-400 transition-colors"
+                      className="text-sm text-[#7A8FA0] hover:text-[#C9A84C] transition-colors"
                     >
                       {item}
                     </a>

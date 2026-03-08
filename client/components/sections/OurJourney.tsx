@@ -67,9 +67,9 @@ const itemVariants = {
 };
 
 export function OurJourney({ isDarkMode }: OurJourneyProps) {
-  const mutedClasses = isDarkMode ? "text-slate-400" : "text-slate-700";
+  const mutedClasses = isDarkMode ? "text-[#B8C8D8]" : "text-slate-700";
   const cardBg = isDarkMode
-    ? "bg-slate-800/40 border-slate-700/50"
+    ? "bg-[#0F2137]/60 border-white/10"
     : "bg-white/90 border-slate-300/70 shadow-md";
   const textColor = isDarkMode ? "text-slate-100" : "text-slate-900";
 
@@ -77,8 +77,8 @@ export function OurJourney({ isDarkMode }: OurJourneyProps) {
     <section
       className={`py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
         isDarkMode
-          ? "bg-gradient-to-b from-slate-900 via-indigo-950/20 to-slate-900"
-          : "bg-gradient-to-b from-slate-100 via-indigo-50/20 to-slate-100"
+          ? "bg-gradient-to-b from-[#0A1628]/50 via-[#0A1628]/50 to-[#0A1628]/50"
+          : "bg-gradient-to-b from-slate-100/50 via-amber-50/10 to-slate-100/50"
       }`}
     >
       <div className="max-w-4xl mx-auto">
@@ -92,7 +92,7 @@ export function OurJourney({ isDarkMode }: OurJourneyProps) {
         >
           <h2 className={`text-4xl sm:text-5xl font-bold mb-4 ${textColor}`}>
             Our{" "}
-            <span className="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#C9A84C] to-[#E2BC6A] bg-clip-text text-transparent">
               Journey
             </span>
           </h2>
@@ -114,8 +114,8 @@ export function OurJourney({ isDarkMode }: OurJourneyProps) {
           <motion.div
             className={`absolute left-1/2 transform -translate-x-1/2 w-1 h-full ${
               isDarkMode
-                ? "bg-gradient-to-b from-indigo-600 to-purple-600"
-                : "bg-gradient-to-b from-indigo-400 to-purple-400"
+                ? "bg-gradient-to-b from-[#C9A84C] to-[#A8893C]"
+                : "bg-gradient-to-b from-[#C9A84C] to-[#E2BC6A]"
             }`}
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
@@ -139,12 +139,12 @@ export function OurJourney({ isDarkMode }: OurJourneyProps) {
                   transition={{ duration: 0.3 }}
                 >
                   <div
-                    className={`absolute inset-0 rounded-xl bg-gradient-to-br from-indigo-500/0 to-purple-500/0 group-hover:from-indigo-500/10 group-hover:to-purple-500/10 transition-all duration-300`}
+                    className={`absolute inset-0 rounded-xl bg-gradient-to-br from-[#C9A84C]/0 to-[#E2BC6A]/0 group-hover:from-[#C9A84C]/10 group-hover:to-[#E2BC6A]/10 transition-all duration-300`}
                   />
 
                   <div className="relative z-10">
                     <p
-                      className={`text-sm font-semibold mb-2 bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent`}
+                      className={`text-sm font-semibold mb-2 bg-gradient-to-r from-[#C9A84C] to-[#E2BC6A] bg-clip-text text-transparent`}
                     >
                       {item.year}
                     </p>
@@ -161,15 +161,15 @@ export function OurJourney({ isDarkMode }: OurJourneyProps) {
                   </div>
 
                   {/* Glow effect on hover */}
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none" />
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#C9A84C] to-[#E2BC6A] opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none" />
                 </motion.div>
 
                 {/* Center Badge (Year Circle) */}
                 <motion.div
-                  className="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 relative z-20 flex-shrink-0 shadow-lg"
+                  className="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center rounded-full bg-gradient-to-br from-[#C9A84C] to-[#A8893C] relative z-20 flex-shrink-0 shadow-lg"
                   whileHover={{
                     scale: 1.1,
-                    boxShadow: "0 0 20px rgba(99, 102, 241, 0.6)",
+                    boxShadow: "0 0 20px rgba(201, 168, 76, 0.6)",
                   }}
                   transition={{ duration: 0.3 }}
                   initial={{ scale: 0 }}

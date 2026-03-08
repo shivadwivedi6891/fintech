@@ -56,21 +56,21 @@ const itemVariants = {
 };
 
 export function OurCertificates({ isDarkMode }: OurCertificatesProps) {
-  const mutedClasses = isDarkMode ? "text-slate-400" : "text-slate-700";
+  const mutedClasses = isDarkMode ? "text-[#B8C8D8]" : "text-slate-700";
   const cardBg = isDarkMode
-    ? "bg-slate-800/40 border-slate-700/50"
+    ? "bg-[#0F2137]/60 border-white/10"
     : "bg-white/90 border-slate-300/70 shadow-md";
   const textColor = isDarkMode ? "text-slate-100" : "text-slate-900";
   const imagePlaceholderBg = isDarkMode
-    ? "bg-slate-700/30 border-slate-600/30"
-    : "bg-green-50/60 border-green-200/40";
+    ? "bg-[#0A1628]/30 border-white/10"
+    : "bg-amber-50/60 border-amber-200/40";
 
   return (
     <section
       className={`py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
         isDarkMode
-          ? "bg-gradient-to-b from-slate-900 via-emerald-950/20 to-slate-900"
-          : "bg-gradient-to-b from-slate-100 via-emerald-50/20 to-slate-100"
+          ? "bg-gradient-to-b from-[#0A1628]/50 via-[#0A1628]/50 to-[#0A1628]/50"
+          : "bg-gradient-to-b from-slate-100/50 via-amber-50/10 to-slate-100/50"
       }`}
     >
       <div className="max-w-7xl mx-auto">
@@ -84,7 +84,7 @@ export function OurCertificates({ isDarkMode }: OurCertificatesProps) {
         >
           <h2 className={`text-4xl sm:text-5xl font-bold mb-4 ${textColor}`}>
             Our{" "}
-            <span className="bg-gradient-to-r from-emerald-500 to-green-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#C9A84C] to-[#E2BC6A] bg-clip-text text-transparent">
               Certificates
             </span>
           </h2>
@@ -111,13 +111,13 @@ export function OurCertificates({ isDarkMode }: OurCertificatesProps) {
                 whileHover={{
                   y: -8,
                   boxShadow: isDarkMode
-                    ? "0 20px 40px rgba(16, 185, 129, 0.15)"
-                    : "0 20px 40px rgba(16, 185, 129, 0.1)",
+                    ? "0 20px 40px rgba(201, 168, 76, 0.15)"
+                    : "0 20px 40px rgba(201, 168, 76, 0.1)",
                 }}
                 transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
               >
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/0 to-green-500/0 group-hover:from-emerald-500/10 group-hover:to-green-500/10 transition-all duration-300 z-0" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#C9A84C]/0 to-[#E2BC6A]/0 group-hover:from-[#C9A84C]/10 group-hover:to-[#E2BC6A]/10 transition-all duration-300 z-0" />
 
                 {/* Image/Document Placeholder Area */}
                 <motion.div
@@ -126,7 +126,7 @@ export function OurCertificates({ isDarkMode }: OurCertificatesProps) {
                   transition={{ duration: 0.3 }}
                 >
                   <div
-                    className={`text-emerald-500/60 group-hover:text-emerald-500 transition-colors duration-300`}
+                    className={`text-[#C9A84C]/60 group-hover:text-[#C9A84C] transition-colors duration-300`}
                   >
                     <Icon className="w-12 h-12 mx-auto" />
                   </div>
@@ -143,9 +143,9 @@ export function OurCertificates({ isDarkMode }: OurCertificatesProps) {
                       viewport={{ once: true }}
                       transition={{ delay: 0.1 + index * 0.12, duration: 0.4 }}
                     >
-                      <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30">
-                        <Check className="w-3 h-3 text-emerald-500" />
-                        <span className="text-xs font-semibold text-emerald-500">
+                      <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-[#C9A84C]/15 border border-[#C9A84C]/30">
+                        <Check className="w-3 h-3 text-[#C9A84C]" />
+                        <span className="text-xs font-semibold text-[#C9A84C]">
                           Verified
                         </span>
                       </div>
@@ -154,14 +154,14 @@ export function OurCertificates({ isDarkMode }: OurCertificatesProps) {
 
                   {/* Certificate Title */}
                   <h3
-                    className={`text-base font-bold mb-2 ${textColor} group-hover:bg-gradient-to-r group-hover:from-emerald-500 group-hover:to-green-500 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300`}
+                    className={`text-base font-bold mb-2 ${textColor} group-hover:bg-gradient-to-r group-hover:from-[#C9A84C] group-hover:to-[#E2BC6A] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300`}
                   >
                     {cert.name}
                   </h3>
 
                   {/* Subtle Accent Line */}
                   <motion.div
-                    className="w-8 h-0.5 bg-gradient-to-r from-emerald-500 to-green-500 mb-3 origin-left"
+                    className="w-8 h-0.5 bg-gradient-to-r from-[#C9A84C] to-[#E2BC6A] mb-3 origin-left"
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
@@ -177,7 +177,7 @@ export function OurCertificates({ isDarkMode }: OurCertificatesProps) {
 
                   {/* Future Action Hint */}
                   <motion.div
-                    className="mt-4 text-xs font-medium text-emerald-500/60 group-hover:text-emerald-500 transition-colors duration-300 flex items-center gap-1"
+                    className="mt-4 text-xs font-medium text-[#C9A84C]/60 group-hover:text-[#C9A84C] transition-colors duration-300 flex items-center gap-1"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -189,7 +189,7 @@ export function OurCertificates({ isDarkMode }: OurCertificatesProps) {
 
                 {/* Top Border Glow */}
                 <motion.div
-                  className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500 to-transparent"
+                  className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent"
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
