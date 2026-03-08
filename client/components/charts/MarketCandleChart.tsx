@@ -16,28 +16,28 @@ const SYMBOLS: SymbolConfig[] = [
     name: 'Bitcoin',
     displayName: 'BTC/USDT',
     tvSymbol: 'BINANCE:BTCUSDT',
-    icon: '₿'
+    icon: ''
   },
   {
     id: 'ETH',
     name: 'Ethereum',
     displayName: 'ETH/USDT',
     tvSymbol: 'BINANCE:ETHUSDT',
-    icon: 'Ξ'
+    icon: ''
   },
   {
     id: 'GOLD',
     name: 'Gold',
     displayName: 'GOLD/USDT',
     tvSymbol: 'BINANCE:PAXGUSDT',
-    icon: '🥇'
+    icon: ''
   },
   {
     id: 'SILVER',
     name: 'Silver',
     displayName: 'SILVER/USD',
     tvSymbol: 'OANDA:XAGUSD',
-    icon: '🥈'
+    icon: ''
   }
 ];
 
@@ -131,7 +131,7 @@ export function MarketCandleChart() {
           </div>
           <div className="text-right">
             <p className="text-xs text-muted-foreground">Powered by</p>
-            <p className="text-sm font-bold text-primary">📈 TradingView</p>
+            <p className="text-sm font-bold text-primary">TradingView</p>
           </div>
         </div>
 
@@ -147,7 +147,6 @@ export function MarketCandleChart() {
                   : "bg-card border border-border hover:border-primary hover:scale-102"
               }`}
             >
-              <span className="text-lg">{sym.icon}</span>
               <span>{sym.displayName}</span>
             </button>
           ))}
@@ -165,19 +164,19 @@ export function MarketCandleChart() {
       <div className="mt-6 pt-4 border-t border-border flex flex-wrap gap-4 text-sm">
         <div className="animate-slide-in">
           <p className="text-muted-foreground">Data Source</p>
-          <p className="font-semibold">📈 TradingView Live</p>
+          <p className="font-semibold">TradingView Live</p>
         </div>
         <div className="animate-slide-in" style={{ animationDelay: "0.1s" }}>
           <p className="text-muted-foreground">Update Interval</p>
-          <p className="font-semibold">⚡ Real-time</p>
+          <p className="font-semibold">Real-time</p>
         </div>
         <div className="animate-slide-in" style={{ animationDelay: "0.2s" }}>
           <p className="text-muted-foreground">Candle Period</p>
-          <p className="font-semibold">📊 15 Minutes</p>
+          <p className="font-semibold">15 Minutes</p>
         </div>
         <div className="animate-slide-in" style={{ animationDelay: "0.3s" }}>
           <p className="text-muted-foreground">Symbol</p>
-          <p className="font-semibold">🕯️ {selectedSymbol.tvSymbol}</p>
+          <p className="font-semibold">{selectedSymbol.tvSymbol}</p>
         </div>
       </div>
     </div>

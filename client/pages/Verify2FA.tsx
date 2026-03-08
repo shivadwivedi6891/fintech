@@ -64,11 +64,13 @@ export default function Verify2FA() {
 
     setIsLoading(true);
     try {
-      const res = await apiClient.post("/auth/verify-2fa", {
+       const res = await apiClient.post<{ token: string; refreshToken: string }>("/auth/verify-2fa", {
         tempToken,
         code: codeString,
       });
 
+
+      
       const { token, refreshToken } = res.data;
       
       // Update auth context with tokens
@@ -94,7 +96,7 @@ export default function Verify2FA() {
         {/* Logo */}
         <div className="text-center space-y-2">
           <h1 className="text-4xl font-bold text-primary">TradePro</h1>
-          <p className="text-muted-foreground">Professional Trading Platform</p>
+          <p className="text-muted-foreground">Professional Investment Platform</p>
         </div>
 
         {/* 2FA Form */}
