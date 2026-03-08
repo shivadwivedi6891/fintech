@@ -421,9 +421,9 @@ const itemVariants = {
 export function StartSmartInvestBetter({
   isDarkMode,
 }: StartSmartInvestBetterProps) {
-  const mutedClasses = isDarkMode ? "text-slate-400" : "text-slate-700";
+  const mutedClasses = isDarkMode ? "text-[#B8C8D8]" : "text-slate-700";
   const cardBg = isDarkMode
-    ? "bg-slate-800/40 border-slate-700/50"
+    ? "bg-[#0F2137]/60 border-white/10"
     : "bg-white/90 border-slate-300/70 shadow-md";
   const textColor = isDarkMode ? "text-slate-100" : "text-slate-900";
 
@@ -431,8 +431,8 @@ export function StartSmartInvestBetter({
     <section
       className={`py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
         isDarkMode
-          ? "bg-gradient-to-b from-slate-900 via-cyan-950/20 to-slate-900"
-          : "bg-gradient-to-b from-slate-100 via-cyan-50/20 to-slate-100"
+          ? "bg-gradient-to-b from-[#0A1628]/50 via-[#0A1628]/50 to-[#0A1628]/50"
+          : "bg-gradient-to-b from-slate-100/50 via-amber-50/10 to-slate-100/50"
       }`}
     >
       <div className="max-w-7xl mx-auto">
@@ -447,12 +447,12 @@ export function StartSmartInvestBetter({
           <div
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-sm ${
               isDarkMode
-                ? "bg-cyan-500/10 border-cyan-500/30"
-                : "bg-cyan-100/80 border-cyan-400/50 shadow-sm"
+                ? "bg-[#C9A84C]/10 border-[#C9A84C]/30"
+                : "bg-amber-100/80 border-amber-400/50 shadow-sm"
             }`}
           >
-            <Zap className="w-4 h-4 text-cyan-500" />
-            <span className="text-sm font-semibold text-cyan-500">
+            <Zap className="w-4 h-4 text-[#C9A84C]" />
+            <span className="text-sm font-semibold text-[#C9A84C]">
               How It Works
             </span>
           </div>
@@ -468,7 +468,7 @@ export function StartSmartInvestBetter({
         >
           <h2 className={`text-4xl sm:text-5xl font-bold mb-4 ${textColor}`}>
             Start Smart,{" "}
-            <span className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#C9A84C] to-[#E2BC6A] bg-clip-text text-transparent">
               Invest Better!
             </span>
           </h2>
@@ -520,12 +520,12 @@ export function StartSmartInvestBetter({
                   whileHover={{ x: 8 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/10 group-hover:to-blue-500/10 transition-all duration-300" />
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#C9A84C]/0 to-[#E2BC6A]/0 group-hover:from-[#C9A84C]/10 group-hover:to-[#E2BC6A]/10 transition-all duration-300" />
 
                   <div className="relative z-10 flex items-start gap-4 sm:gap-6">
                     {/* Step Number Badge */}
                     <motion.div
-                      className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-lg"
+                      className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-br from-[#C9A84C] to-[#A8893C] flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-lg"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ duration: 0.3 }}
                     >
@@ -548,7 +548,7 @@ export function StartSmartInvestBetter({
 
                     {/* Icon */}
                     <motion.div
-                      className="flex-shrink-0 text-cyan-500 mt-2"
+                      className="flex-shrink-0 text-[#C9A84C] mt-2"
                       whileHover={{ scale: 1.2, rotate: -10 }}
                       transition={{ duration: 0.3 }}
                     >
