@@ -17,6 +17,11 @@ export default function Signup() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLocalError("");
+    
+    console.log('🚀 Signup form submitted');
+    console.log('Email:', email);
+    console.log('Name:', name);
+    console.log('Phone:', phone);
 
     if (password !== confirmPassword) {
       setLocalError("Passwords do not match");
@@ -29,9 +34,15 @@ export default function Signup() {
     }
 
     try {
+      console.log('📤 Calling signup API...');
       await signup(email, password, name, phone);
+      console.log('✅ Signup successful! Storing email and navigating...');
+      // Store email for verification page
+      sessionStorage.setItem('pending_verify_email', email);
+      localStorage.setItem('pending_verify_email', email);
       navigate("/verify-email");
     } catch (err) {
+      console.error('❌ Signup failed:', err);
       // Error is handled by context
     }
   };
