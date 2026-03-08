@@ -34,7 +34,7 @@ export function ProfitTicker({
       <p className="text-muted-foreground text-sm font-medium mb-4">
         Live Profit Ticker
       </p>
-      <div className="text-4xl md:text-5xl font-bold text-profit animate-counter-glow inline-block">
+      <div className="text-4xl md:text-5xl font-bold text-profit">
         {formatCurrency(currentProfit, "USD", 2)}
       </div>
       <p className="text-xs text-muted-foreground mt-4">

@@ -42,14 +42,14 @@ export default function Signup() {
         {/* Logo */}
         <div className="text-center space-y-2">
           <h1 className="text-4xl font-bold text-primary">TradePro</h1>
-          <p className="text-muted-foreground">Professional Trading Platform</p>
+          <p className="text-muted-foreground">Professional I Platform</p>
         </div>
 
         {/* Signup Form */}
         <GlassCard heavy className="p-8 space-y-6">
           <h2 className="text-2xl font-bold text-center">Create Account</h2>
 
-          {(error || localError) && (
+          {(error ||localError) && (
             <div className="bg-loss/20 border border-loss/30 text-loss px-4 py-3 rounded-lg text-sm">
               <div>{error || localError}</div>
               {/* If email already registered, it means they signed up but haven't verified yet */}
@@ -125,7 +125,7 @@ export default function Signup() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
                   className="w-full bg-input border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
-                  required
+                   required
                   disabled={isLoading}
                 />
               </div>

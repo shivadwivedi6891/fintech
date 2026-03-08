@@ -65,7 +65,7 @@ export function AnimatedCounter({
   return (
     <span
       ref={ref}
-      className={`${glowing ? "animate-counter-glow" : ""} ${className}`}
+      className={`text-profit ${glowing ? "animate-counter-glow" : ""} ${className}`}
     >
       {prefix}
       {format === "currency"

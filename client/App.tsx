@@ -17,10 +17,11 @@ import VerifyEmail from "@/pages/VerifyEmail";
 import Verify2FA from "@/pages/Verify2FA";
 import Enable2FA from "@/pages/Enable2FA";
 import Confirm2FA from "@/pages/Confirm2FA";
-import  Dashboard  from "@/pages/Dashboard";
+import Dashboard from "@/pages/Dashboard";
 
 import Deposit from "@/pages/Deposit";
 import Withdraw from "@/pages/Withdraw";
+import P2PTransaction from "@/pages/P2PTransaction";
 import RobotActivation from "@/pages/RobotActivation";
 import Referral from "@/pages/Referral";
 import History from "@/pages/History";
@@ -90,6 +91,7 @@ function AppRoutes() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/wallet/deposit" element={<Deposit />} />
         <Route path="/wallet/withdraw" element={<Withdraw />} />
+        <Route path="/p2p-transaction" element={<P2PTransaction />} />
         <Route path="/robot/activate" element={<RobotActivation />} />
         <Route path="/referral" element={<Referral />} />
         <Route path="/history" element={<History />} />
