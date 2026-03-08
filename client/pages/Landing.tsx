@@ -854,7 +854,7 @@ export default function Landing() {
                       <div>
                         <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${mutedClasses}`}>EMAIL</p>
                         <p className={`text-sm font-semibold ${isDarkMode ? "text-blue-400" : "text-blue-600"}`}>
-                          support@tradepro.com
+                        Support@timofx.com
                         </p>
                       </div>
                     </div>
