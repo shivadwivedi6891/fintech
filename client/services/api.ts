@@ -40,6 +40,21 @@ class ApiService {
           window.location.href = "/login";
         }
 
+        // Handle timeout errors specifically
+        if (error.code === 'ECONNABORTED') {
+          const timeoutError = new Error("Request timeout. Please check your internet connection or try again later.");
+          (timeoutError as any).status = 408;
+          (timeoutError as any).code = 'TIMEOUT';
+          return Promise.reject(timeoutError);
+        }
+
+        // Handle network errors
+        if (!error.response) {
+          const networkError = new Error("Network error. Please check if the backend server is running.");
+          (networkError as any).code = 'NETWORK_ERROR';
+          return Promise.reject(networkError);
+        }
+
         const message =
           error.response?.data instanceof Object
             ? (error.response.data as any).error ||
