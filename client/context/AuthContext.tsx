@@ -247,29 +247,27 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signup = async (email: string, password: string, name: string, phone: string) => {
+    console.log('🔐 AuthContext: Starting signup process...');
+    console.log('Email:', email);
     dispatch({ type: "SIGNUP_START" });
     try {
       const payload: SignupRequest = { email, password, name, phone };
-      await apiClient.post("/auth/register", payload);
+      console.log('📤 Sending registration request to backend...');
+      console.log('API Endpoint:', '/auth/register');
+      console.log('Payload:', { email, name, phone, password: '***' });
+      
+      const response = await apiClient.post("/auth/register", payload);
+      console.log('✅ Backend response received:', response.data);
+      
       // Store email so the verify-email page can pre-fill it
       sessionStorage.setItem("pending_verify_email", email);
+      console.log('✅ Email stored in sessionStorage');
+      
       dispatch({ type: "SIGNUP_SUCCESS" });
+      console.log('✅ Signup process completed successfully');
     } catch (error: any) {
-      console.log("Signup error:", error);
-      
-      // Extract error message from various sources
-      let errorMessage = "Signup failed";
-      
-      if (error?.data?.error) {
-        errorMessage = error.data.error;
-      } else if (error?.data?.message) {
-        errorMessage = error.data.message;
-      } else if (error?.message) {
-        errorMessage = error.message;
-      } else if (typeof error === "string") {
-        errorMessage = error;
-      }
-      
+      console.error('❌ Signup error:', error);
+      console.error('Error response:', error?.response?.data);
       dispatch({
         type: "SIGNUP_FAIL",
         payload: errorMessage,
