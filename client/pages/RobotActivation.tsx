@@ -273,7 +273,7 @@ export default function RobotActivation() {
           <div className="space-y-3 text-sm">
             <div>
               <p className="font-semibold mb-1">
-                Where can I find my transaction hash?
+                Q.1 Where can I find my transaction hash?
               </p>
               <p className="text-muted-foreground">
                 Open your wallet or blockchain explorer, find your transaction,
@@ -281,7 +281,7 @@ export default function RobotActivation() {
               </p>
             </div>
             <div>
-              <p className="font-semibold mb-1">What is the deposit address?</p>
+              <p className="font-semibold mb-1">Q.2 What is the deposit address?</p>
               <p className="text-muted-foreground">
                 It's the wallet address where you sent the payment from. You can
                 find it in your wallet's transaction history.
@@ -289,7 +289,7 @@ export default function RobotActivation() {
             </div>
             <div>
               <p className="font-semibold mb-1">
-                How long until my robot is active?
+                Q.3 How long until my robot is active?
               </p>
               <p className="text-muted-foreground">
                 After you submit, verification takes 5-10 minutes. You'll
@@ -297,7 +297,7 @@ export default function RobotActivation() {
               </p>
             </div>
             <div>
-              <p className="font-semibold mb-1">Can I change the details later?</p>
+              <p className="font-semibold mb-1">Q.4 Can I change the details later?</p>
               <p className="text-muted-foreground">
                 Contact support if you need to modify robot settings after
                 activation.

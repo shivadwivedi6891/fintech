@@ -9,7 +9,7 @@ export function TradingBackground({ isDarkMode }: TradingBackgroundProps) {
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
       {/* Main Grid Background */}
       <motion.div
-        className="absolute inset-0 opacity-[0.08]"
+        className="absolute inset-0 opacity-[0.18]"
         animate={{
           backgroundPosition: ["0% 0%", "100% 100%"],
         }}
@@ -20,15 +20,15 @@ export function TradingBackground({ isDarkMode }: TradingBackgroundProps) {
           ease: "linear",
         }}
         style={{
-          backgroundImage: `linear-gradient(0deg, ${isDarkMode ? "rgba(16, 185, 129, 0.4)" : "rgba(16, 185, 129, 0.2)"} 1px, transparent 1px), 
-                           linear-gradient(90deg, ${isDarkMode ? "rgba(16, 185, 129, 0.4)" : "rgba(16, 185, 129, 0.2)"} 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(0deg, ${isDarkMode ? "rgba(201, 168, 76, 0.6)" : "rgba(201, 168, 76, 0.25)"} 1px, transparent 1px), 
+                           linear-gradient(90deg, ${isDarkMode ? "rgba(201, 168, 76, 0.6)" : "rgba(201, 168, 76, 0.25)"} 1px, transparent 1px)`,
           backgroundSize: "80px 80px",
         }}
       />
 
       {/* Animated Chart Lines - Full Width */}
       <motion.svg
-        className="absolute top-0 left-0 w-full h-1/2 opacity-6"
+        className="absolute top-0 left-0 w-full h-1/2 opacity-[0.15]"
         viewBox="0 0 1000 500"
         preserveAspectRatio="none"
         animate={{ y: [0, -20, 0] }}
@@ -38,7 +38,7 @@ export function TradingBackground({ isDarkMode }: TradingBackgroundProps) {
         <polyline
           points="0,400 150,320 300,250 450,180 600,120 750,80 900,40 1000,20"
           fill="none"
-          stroke={isDarkMode ? "#10b981" : "#059669"}
+          stroke={isDarkMode ? "#C9A84C" : "#A8893C"}
           strokeWidth="1.5"
           opacity="0.5"
         />
@@ -54,7 +54,7 @@ export function TradingBackground({ isDarkMode }: TradingBackgroundProps) {
         <polyline
           points="0,250 200,240 400,260 600,250 800,260 1000,250"
           fill="none"
-          stroke={isDarkMode ? "#f59e0b" : "#d97706"}
+          stroke={isDarkMode ? "#E2BC6A" : "#C9A84C"}
           strokeWidth="1"
           opacity="0.3"
         />
@@ -62,7 +62,7 @@ export function TradingBackground({ isDarkMode }: TradingBackgroundProps) {
 
       {/* Bottom Chart Lines */}
       <motion.svg
-        className="absolute bottom-0 left-0 w-full h-1/3 opacity-6"
+        className="absolute bottom-0 left-0 w-full h-1/3 opacity-[0.15]"
         viewBox="0 0 1000 300"
         preserveAspectRatio="none"
         animate={{ y: [0, 10, 0] }}
@@ -77,7 +77,7 @@ export function TradingBackground({ isDarkMode }: TradingBackgroundProps) {
         <polyline
           points="0,280 120,240 240,200 360,160 480,120 600,80 720,50 840,30 1000,10"
           fill="none"
-          stroke={isDarkMode ? "#10b981" : "#059669"}
+          stroke={isDarkMode ? "#C9A84C" : "#A8893C"}
           strokeWidth="1.2"
           opacity="0.45"
         />
@@ -94,7 +94,7 @@ export function TradingBackground({ isDarkMode }: TradingBackgroundProps) {
       {/* Candlestick Grid - Left Column */}
       <motion.div
         className="absolute left-0 top-1/4 w-32 h-96"
-        animate={{ opacity: [0.07, 0.12, 0.07] }}
+        animate={{ opacity: [0.15, 0.25, 0.15] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
       >
         <svg
@@ -113,8 +113,8 @@ export function TradingBackground({ isDarkMode }: TradingBackgroundProps) {
                 stroke={
                   i % 2 === 0
                     ? isDarkMode
-                      ? "#10b981"
-                      : "#059669"
+                      ? "#C9A84C"
+                      : "#A8893C"
                     : isDarkMode
                       ? "#ef4444"
                       : "#dc2626"
@@ -130,8 +130,8 @@ export function TradingBackground({ isDarkMode }: TradingBackgroundProps) {
                 fill={
                   i % 2 === 0
                     ? isDarkMode
-                      ? "#10b981"
-                      : "#059669"
+                      ? "#C9A84C"
+                      : "#A8893C"
                     : isDarkMode
                       ? "#ef4444"
                       : "#dc2626"
@@ -146,7 +146,7 @@ export function TradingBackground({ isDarkMode }: TradingBackgroundProps) {
       {/* Candlestick Grid - Right Column */}
       <motion.div
         className="absolute right-0 top-1/3 w-32 h-96"
-        animate={{ opacity: [0.06, 0.11, 0.06] }}
+        animate={{ opacity: [0.15, 0.25, 0.15] }}
         transition={{
           duration: 11,
           repeat: Infinity,
@@ -169,8 +169,8 @@ export function TradingBackground({ isDarkMode }: TradingBackgroundProps) {
                 stroke={
                   i % 2 === 0
                     ? isDarkMode
-                      ? "#10b981"
-                      : "#059669"
+                      ? "#C9A84C"
+                      : "#A8893C"
                     : isDarkMode
                       ? "#ef4444"
                       : "#dc2626"
@@ -185,8 +185,8 @@ export function TradingBackground({ isDarkMode }: TradingBackgroundProps) {
                 fill={
                   i % 2 === 0
                     ? isDarkMode
-                      ? "#10b981"
-                      : "#059669"
+                      ? "#C9A84C"
+                      : "#A8893C"
                     : isDarkMode
                       ? "#ef4444"
                       : "#dc2626"
@@ -216,11 +216,11 @@ export function TradingBackground({ isDarkMode }: TradingBackgroundProps) {
             backgroundColor:
               idx % 2 === 0
                 ? isDarkMode
-                  ? "#10b981"
-                  : "#059669"
+                  ? "#C9A84C"
+                  : "#A8893C"
                 : isDarkMode
-                  ? "#fbbf24"
-                  : "#f59e0b",
+                  ? "#E2BC6A"
+                  : "#C9A84C",
           }}
           animate={{
             y: [0, -15, 0],
@@ -248,11 +248,11 @@ export function TradingBackground({ isDarkMode }: TradingBackgroundProps) {
           style={{
             left: glow.x,
             top: glow.y,
-            background: `radial-gradient(circle, ${isDarkMode ? "rgba(16, 185, 129, 0.1)" : "rgba(16, 185, 129, 0.08)"}, transparent)`,
+            background: `radial-gradient(circle, ${isDarkMode ? "rgba(201, 168, 76, 0.2)" : "rgba(201, 168, 76, 0.12)"}, transparent)`,
           }}
           animate={{
             scale: [1, 1.3, 1],
-            opacity: [0.1, 0.3, 0.1],
+            opacity: [0.2, 0.5, 0.2],
           }}
           transition={{
             duration: 7,
@@ -265,10 +265,10 @@ export function TradingBackground({ isDarkMode }: TradingBackgroundProps) {
 
       {/* Diagonal Accent Lines */}
       <motion.svg
-        className="absolute inset-0 w-full h-full opacity-5"
+        className="absolute inset-0 w-full h-full opacity-10"
         viewBox="0 0 1000 1000"
         preserveAspectRatio="none"
-        animate={{ opacity: [0.05, 0.1, 0.05] }}
+        animate={{ opacity: [0.1, 0.2, 0.1] }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
       >
         <line
@@ -276,7 +276,7 @@ export function TradingBackground({ isDarkMode }: TradingBackgroundProps) {
           y1="0"
           x2="1000"
           y2="1000"
-          stroke={isDarkMode ? "#10b981" : "#059669"}
+          stroke={isDarkMode ? "#C9A84C" : "#A8893C"}
           strokeWidth="0.5"
           opacity="0.5"
         />

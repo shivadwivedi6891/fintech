@@ -162,11 +162,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       });
 
       return { requires2FA: false };
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      console.log("Login error:", error);
+      
+      // Extract error message from various sources
+      let errorMessage = "Login failed";
+      
+      if (error?.data?.error) {
+        errorMessage = error.data.error;
+      } else if (error?.data?.message) {
+        errorMessage = error.data.message;
+      } else if (error?.message) {
+        errorMessage = error.message;
+      } else if (typeof error === "string") {
+        errorMessage = error;
+      }
+      
       dispatch({
         type: "LOGIN_FAIL",
-        payload: error instanceof Error ? error.message : "Login Failed",
+        payload: errorMessage,
       });
       throw error;
     }
@@ -256,9 +270,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       console.error('Error response:', error?.response?.data);
       dispatch({
         type: "SIGNUP_FAIL",
-        payload:
-          error?.message ||
-          (error instanceof Error ? error.message : "Signup failed"),
+        payload: errorMessage,
       });
       throw error;
     }
