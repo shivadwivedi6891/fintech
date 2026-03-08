@@ -44,6 +44,11 @@ export default function Signup() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLocalError("");
+    
+    console.log('🚀 Signup form submitted');
+    console.log('Email:', email);
+    console.log('Name:', name);
+    console.log('Phone:', phone);
 
     if (phone.length !== selectedCountry.maxDigits) {
       setLocalError(`Phone number must be ${selectedCountry.maxDigits} digits for ${selectedCountry.name}`);
@@ -64,6 +69,7 @@ export default function Signup() {
       await signup(email, password, name, `${selectedCountry.code}${phone}`);
       navigate("/verify-email");
     } catch (err) {
+      console.error('❌ Signup failed:', err);
       // Error is handled by context
     }
   };
