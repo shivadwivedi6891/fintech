@@ -112,7 +112,7 @@ export function Sidebar({ isOpen, onToggle }: SidebarProps) {
         )}
       >
         <div className="p-6 border-b border-white/10">
-          <h1 className="text-2xl font-bold text-slate-900">TradePro</h1>
+          <h1 className="text-2xl font-bold text-slate-900">Timofx</h1>
           <p className="text-xs text-muted-foreground mt-1">
             Professional Investment Platform
           </p>

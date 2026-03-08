@@ -33,7 +33,7 @@ export default function Login() {
       <div className="w-full max-w-md space-y-8 animate-slide-up">
         {/* Logo */}
         <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold text-primary">TradePro</h1>
+          <h1 className="text-4xl font-bold text-primary">Timofx</h1>
           <p className="text-muted-foreground">Professional Investment Platform</p>
         </div>
 

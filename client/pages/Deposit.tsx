@@ -329,9 +329,9 @@ export default function Deposit() {
                         disabled={submitting}
                       />
                     </div>
-                    <p className="text-xs text-muted-foreground mt-2">
+                    {/* <p className="text-xs text-muted-foreground mt-2">
                       Minimum: $10 USDT
-                    </p>
+                    </p> */}
                   </div>
 
                   {/* Transaction Hash Input */}

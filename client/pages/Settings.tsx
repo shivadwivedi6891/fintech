@@ -123,7 +123,7 @@ export default function Settings() {
 
         {/* Danger Zone */}
         <GlassCard heavy className="p-8 space-y-6 border-loss/30">
-          <h3 className="text-lg font-semibold text-loss">Danger Zone</h3>
+          {/* <h3 className="text-lg font-semibold text-loss">Danger Zone</h3> */}
 
           <button
             onClick={() => {

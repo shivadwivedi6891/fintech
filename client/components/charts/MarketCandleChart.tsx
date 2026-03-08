@@ -28,14 +28,14 @@ const SYMBOLS: SymbolConfig[] = [
   {
     id: 'GOLD',
     name: 'Gold',
-    displayName: 'GOLD/USDT',
+    displayName: 'XAUUSD',
     tvSymbol: 'BINANCE:PAXGUSDT',
     icon: ''
   },
   {
     id: 'SILVER',
     name: 'Silver',
-    displayName: 'SILVER/USD',
+    displayName: 'XAGUSD',
     tvSymbol: 'OANDA:XAGUSD',
     icon: ''
   }

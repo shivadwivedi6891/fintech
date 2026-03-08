@@ -170,7 +170,7 @@ export default function Enable2FA() {
                   <ol className="list-decimal list-inside space-y-1 ml-2">
                     <li>Open your authenticator app</li>
                     <li>Select "Enter a setup key" or "Manual entry"</li>
-                    <li>Enter account name: <span className="text-foreground font-mono">TradePro</span></li>
+                    <li>Enter account name: <span className="text-foreground font-mono">Timofx</span></li>
                     <li>Paste or type the key above</li>
                     <li>Select "Time-based" option</li>
                   </ol>

@@ -57,7 +57,7 @@ export const mockTransactions: Transaction[] = [
     netAmount: 1500,
     status: "completed",
     timestamp: new Date("2024-12-10"),
-    description: "Referral Bonus",
+    description: "Referral Income",
   },
   {
     id: "txn-1005",

@@ -76,7 +76,7 @@ export default function Dashboard() {
         </div>
 
         {/* Key Metrics - 5 Cards Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <MetricsCard
             title="Main Wallet"
             value={displayBalance.mainWallet}
@@ -85,27 +85,27 @@ export default function Dashboard() {
             
             trend={{ value: 2.5, isPositive: true }}
           />
-          <MetricsCard
+          {/* <MetricsCard
             title="Active Deposit"
             value={displayBalance.activeDeposit}
             icon={<TrendingUp />}
             trend={{ value: 5.2, isPositive: true }}
-          />
+          /> */}
           <MetricsCard
-            title="Profit Balance"
+            title="Income Balance"
             value={displayBalance.profitBalance}
             icon={<ArrowUpRight />}
             glowing
             trend={{ value: 12.8, isPositive: true }}
           />
           <MetricsCard
-            title="Referral Bonus"
+            title="Referral Income"
             value={displayBalance.referralBonus}
             icon={<Gift />}
             trend={{ value: 3.5, isPositive: true }}
           />
           <MetricsCard
-            title="Total Investment"
+            title="Total Income"
             value={displayBalance.totalInvestment}
             icon={<ArrowDownLeft />}
           />
