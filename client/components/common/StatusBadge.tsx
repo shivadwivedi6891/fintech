@@ -3,6 +3,8 @@ import { cn } from "@/lib/utils";
 interface StatusBadgeProps {
   status: "active" | "inactive" | "pending" | "verified" | "completed" | "failed";
   className?: string;
+  onClick?: () => void;
+  clickable?: boolean;
 }
 
 const statusStyles = {
@@ -23,16 +25,25 @@ const statusLabels = {
   failed: "failed",
 };
 
-export function StatusBadge({ status, className }: StatusBadgeProps) {
+export function StatusBadge({
+  status,
+  className,
+  onClick,
+  clickable = false,
+}: StatusBadgeProps) {
   return (
-    <span
+    <button
+      onClick={onClick}
+      disabled={!clickable}
       className={cn(
-        "px-3 py-1 rounded-full text-xs font-semibold inline-block",
+        "px-3 py-1 rounded-full text-xs font-semibold inline-block transition-all duration-300",
         statusStyles[status],
+        clickable && "cursor-pointer hover:scale-110 hover:shadow-lg hover:shadow-profit/30",
+        !clickable && "cursor-default",
         className
       )}
     >
       {statusLabels[status]}
-    </span>
+    </button>
   );
 }

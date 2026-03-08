@@ -97,7 +97,7 @@ export default function VerifyEmail() {
         {/* Logo */}
         <div className="text-center space-y-2">
           <h1 className="text-4xl font-bold text-primary">TradePro</h1>
-          <p className="text-muted-foreground">Professional Trading Platform</p>
+          <p className="text-muted-foreground">Professional Investment Platform</p>
         </div>
 
         <GlassCard heavy className="p-8 space-y-6">

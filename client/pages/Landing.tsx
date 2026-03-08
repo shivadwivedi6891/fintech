@@ -373,7 +373,7 @@ export default function Landing() {
               {[
                 {
                   title: "Active Customers",
-                  value: "1,000+",
+                  value: "15974+",
                   icon: "👥",
                   color: "from-[#C9A84C] to-[#E2BC6A]",
                 },
