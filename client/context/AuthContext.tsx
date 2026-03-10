@@ -162,11 +162,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       });
 
       return { requires2FA: false };
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      console.log("Login error:", error);
+      
+      // Extract error message from various sources
+      let errorMessage = "Login failed";
+      
+      if (error?.data?.error) {
+        errorMessage = error.data.error;
+      } else if (error?.data?.message) {
+        errorMessage = error.data.message;
+      } else if (error?.message) {
+        errorMessage = error.message;
+      } else if (typeof error === "string") {
+        errorMessage = error;
+      }
+      
       dispatch({
         type: "LOGIN_FAIL",
-        payload: error instanceof Error ? error.message : "Login Failed",
+        payload: errorMessage,
       });
       throw error;
     }
@@ -233,6 +247,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signup = async (email: string, password: string, name: string, phone: string) => {
+    console.log('🔐 AuthContext: Starting signup process...');
+    console.log('Email:', email);
     dispatch({ type: "SIGNUP_START" });
     try {
       const payload: SignupRequest = { email, password, name, phone };
@@ -248,13 +264,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       await apiClient.post(endpoint, payload);
       // Store email so the verify-email page can pre-fill it
       sessionStorage.setItem("pending_verify_email", email);
+      console.log('✅ Email stored in sessionStorage');
+      
       dispatch({ type: "SIGNUP_SUCCESS" });
+      console.log('✅ Signup process completed successfully');
     } catch (error: any) {
+      console.error('❌ Signup error:', error);
+      console.error('Error response:', error?.response?.data);
+      
+      // Extract error message from various sources
+      let errorMessage = "Signup failed";
+      
+      if (error?.data?.error) {
+        errorMessage = error.data.error;
+      } else if (error?.data?.message) {
+        errorMessage = error.data.message;
+      } else if (error?.message) {
+        errorMessage = error.message;
+      } else if (typeof error === "string") {
+        errorMessage = error;
+      }
+      
       dispatch({
         type: "SIGNUP_FAIL",
-        payload:
-          error?.message ||
-          (error instanceof Error ? error.message : "Signup failed"),
+        payload: errorMessage,
       });
       throw error;
     }

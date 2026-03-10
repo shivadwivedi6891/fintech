@@ -12,6 +12,7 @@ import {
   LogOut,
   Menu,
   Bot,
+  Send,
 } from "lucide-react";
 
 interface SidebarProps {
@@ -34,6 +35,11 @@ const navItems = [
     label: "Withdraw",
     href: "/wallet/withdraw",
     icon: TrendingUp,
+  },
+  {
+    label: "P2P Transaction",
+    href: "/p2p-transaction",
+    icon: Send,
   },
   {
     label: "Activate Robot",
@@ -65,7 +71,9 @@ export function Sidebar({ isOpen, onToggle }: SidebarProps) {
 
   const handleNav = (href: string, label: string) => {
     if (
-      (label === "Deposit" || label === "Withdraw" || label === "Activate Robot") &&
+      (label === "Deposit" ||
+        label === "Withdraw" ||
+        label === "Activate Robot") &&
       user?.accountStatus === "inactive"
     ) {
       setActivationModalOpen(true);
@@ -100,13 +108,13 @@ export function Sidebar({ isOpen, onToggle }: SidebarProps) {
       <aside
         className={cn(
           "fixed left-0 top-0 h-screen w-64 bg-sidebar border-r border-border transition-all duration-300 z-40 lg:translate-x-0",
-          isOpen ? "translate-x-0" : "-translate-x-full"
+          isOpen ? "translate-x-0" : "-translate-x-full",
         )}
       >
         <div className="p-6 border-b border-white/10">
-          <h1 className="text-2xl font-bold text-slate-900">TradePro</h1>
+          <h1 className="text-2xl font-bold text-slate-900">Timofx</h1>
           <p className="text-xs text-muted-foreground mt-1">
-            Professional Trading Platform
+            Professional Investment Platform
           </p>
         </div>
 
@@ -125,7 +133,7 @@ export function Sidebar({ isOpen, onToggle }: SidebarProps) {
                   "flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-sm font-medium cursor-pointer",
                   isActive
                     ? "bg-primary/20 text-primary border border-primary/30"
-                    : "text-foreground hover:bg-sidebar-accent"
+                    : "text-foreground hover:bg-sidebar-accent",
                 )}
               >
                 <Icon size={18} />

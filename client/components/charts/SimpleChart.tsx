@@ -52,25 +52,20 @@ export function SimpleChart({
     return { x, y, ...d };
   });
 
-  // Create smooth curve path using quadratic bezier curves
-  const createSmoothPath = (points: typeof points) => {
+  // ✅ CHANGED: Zigzag/linear path using straight lines (L commands) instead of bezier curves
+  const createZigzagPath = (points: typeof points) => {
     if (points.length < 2) return "";
     
     let path = `M ${points[0].x} ${points[0].y}`;
     
-    for (let i = 0; i < points.length - 1; i++) {
-      const current = points[i];
-      const next = points[i + 1];
-      const controlX = (current.x + next.x) / 2;
-      
-      path += ` Q ${controlX} ${current.y}, ${controlX} ${(current.y + next.y) / 2}`;
-      path += ` Q ${controlX} ${next.y}, ${next.x} ${next.y}`;
+    for (let i = 1; i < points.length; i++) {
+      path += ` L ${points[i].x} ${points[i].y}`;
     }
     
     return path;
   };
 
-  const linePath = createSmoothPath(points);
+  const linePath = createZigzagPath(points);
   const areaPath = `${linePath} L ${points[points.length - 1].x} ${chartHeight - chartPadding.bottom} L ${points[0].x} ${chartHeight - chartPadding.bottom} Z`;
 
   // Y-axis labels
@@ -173,14 +168,14 @@ export function SimpleChart({
             fill="url(#areaGradient)"
           />
 
-          {/* Main line */}
+          {/* ✅ CHANGED: Main line now zigzag/sharp with strokeLinejoin="miter" for crisp corners */}
           <path
             d={linePath}
             fill="none"
             stroke="url(#lineGradient)"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            strokeWidth="2"
+            strokeLinecap="butt"
+            strokeLinejoin="miter"
             style={{
               filter: "drop-shadow(0 0 8px rgba(34, 197, 94, 0.4))"
             }}
@@ -285,7 +280,7 @@ export function SimpleChart({
           <p className={`text-sm font-bold ${isPositive ? 'text-profit' : 'text-red-500'}`}>
             {isPositive ? '↑' : '↓'} {Math.abs(parseFloat(changePercent))}%
           </p>
-        </div>
+          </div>
       </div>
     </GlassCard>
   );

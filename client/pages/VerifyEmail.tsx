@@ -96,8 +96,8 @@ export default function VerifyEmail() {
       <div className="w-full max-w-md space-y-8 animate-slide-up">
         {/* Logo */}
         <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold text-primary">TradePro</h1>
-          <p className="text-muted-foreground">Professional Trading Platform</p>
+          <h1 className="text-4xl font-bold text-primary">Timofx</h1>
+          <p className="text-muted-foreground">Professional Investment Platform</p>
         </div>
 
         <GlassCard heavy className="p-8 space-y-6">

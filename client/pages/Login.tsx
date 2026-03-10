@@ -33,8 +33,8 @@ export default function Login() {
       <div className="w-full max-w-md space-y-8 animate-slide-up">
         {/* Logo */}
         <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold text-primary">TradePro</h1>
-          <p className="text-muted-foreground">Professional Trading Platform</p>
+          <h1 className="text-4xl font-bold text-primary">Timofx</h1>
+          <p className="text-muted-foreground">Professional Investment Platform</p>
         </div>
 
         {/* Login Form */}
@@ -42,11 +42,14 @@ export default function Login() {
           <h2 className="text-2xl font-bold text-center">Sign In</h2>
 
           {error && (
-            <div className="bg-loss/20 border border-loss/30 text-loss px-4 py-3 rounded-lg text-sm">
-              {error}
+            <div className="bg-loss/20 border-2 border-loss/50 text-loss px-4 py-3 rounded-lg text-sm flex items-start justify-between gap-3">
+              <div>
+                <p className="font-semibold mb-1">Login Failed</p>
+                <p className="text-xs">{error}</p>
+              </div>
               <button
                 onClick={clearError}
-                className="ml-2 font-semibold hover:underline"
+                className="text-xs font-semibold hover:underline whitespace-nowrap"
               >
                 Dismiss
               </button>

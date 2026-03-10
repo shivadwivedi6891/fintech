@@ -10,6 +10,10 @@ interface DepositAddressResponse {
   address: string;
 }
 
+interface DepositSubmitResponse {
+  success: boolean;
+}
+
 export default function Deposit() {
   const { user } = useAuth();
   const [amount, setAmount] = useState("");
@@ -32,10 +36,11 @@ export default function Deposit() {
     try {
       setLoading(true);
       const response = await apiClient.get<DepositAddressResponse>("/wallet/deposit-address");
+      const data = response.data as DepositAddressResponse;
       
-      if (response.data.success) {
-        // setDepositAddress(response.data.address);
-        setNetwork(response.data.network);
+      if (data.success) {
+        // setDepositAddress(data.address);
+        setNetwork(data.network);
       }
     } catch (err: any) {
       setError(err?.message || "Failed to load deposit address");
@@ -112,7 +117,7 @@ export default function Deposit() {
       formData.append('screenshot', screenshot);
 
       // Send request with FormData
-      const response = await apiClient.post("/deposit/submit", formData, {
+      const response = await apiClient.post<DepositSubmitResponse>("/deposit/submit", formData, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -260,17 +265,17 @@ export default function Deposit() {
                       <span className="text-warning font-bold mt-0.5">•</span>
                       <span>Only send <strong>USDT (TRC20)</strong> to this address</span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    {/* <li className="flex items-start gap-2">
                       <span className="text-warning font-bold mt-0.5">•</span>
                       <span>Minimum deposit: <strong>$10 USDT</strong></span>
-                    </li>
+                    </li> */}
                     <li className="flex items-start gap-2">
                       <span className="text-warning font-bold mt-0.5">•</span>
                       <span>Network: <strong>{network} (TRON)</strong></span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-warning font-bold mt-0.5">•</span>
-                      <span>Confirmation time: <strong>5-10 minutes</strong> after network confirmation</span>
+                      <span>Confirmation time: <strong>5-10 minutes</strong></span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-warning font-bold mt-0.5">•</span>
@@ -324,9 +329,9 @@ export default function Deposit() {
                         disabled={submitting}
                       />
                     </div>
-                    <p className="text-xs text-muted-foreground mt-2">
+                    {/* <p className="text-xs text-muted-foreground mt-2">
                       Minimum: $10 USDT
-                    </p>
+                    </p> */}
                   </div>
 
                   {/* Transaction Hash Input */}
@@ -419,11 +424,16 @@ export default function Deposit() {
                 </form>
 
                 {/* Info Note */}
-                <div className="p-4 bg-card/30 rounded-lg border border-white/10">
-                  <p className="text-xs text-muted-foreground">
-                    <strong>Note:</strong> After submission, your transaction will be verified automatically within 5-10 minutes. 
-                    You will receive a confirmation once the deposit is credited to your account.
-                  </p>
+                <div className="p-5 bg-gradient-to-r from-amber-500/20 to-orange-500/15 rounded-lg border-2 border-amber-500/50 hover:border-amber-500/70 transition-colors">
+                  <div className="flex items-start gap-3">
+                    <AlertCircle className="text-amber-500 mt-0.5 flex-shrink-0" size={20} />
+                    <div>
+                      <p className="text-sm font-bold text-amber-300 mb-1">Important Note</p>
+                      <p className="text-sm text-amber-100">
+                        After submission, your transaction will be verified automatically within 5-10 minutes. You will receive a confirmation once the deposit is credited to your account.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </GlassCard>
             )}
@@ -433,25 +443,25 @@ export default function Deposit() {
               <h3 className="font-semibold mb-4">Need Help?</h3>
               <div className="space-y-3 text-sm">
                 <div>
-                  <p className="font-semibold mb-1">Where can I find my transaction hash?</p>
+                  <p className="font-semibold mb-1">Q.1 Where can I find my transaction hash?</p>
                   <p className="text-muted-foreground">
                     Open your wallet app, go to transaction history, and copy the transaction ID/hash after sending USDT.
                   </p>
                 </div>
                 <div>
-                  <p className="font-semibold mb-1">Why do I need to upload a screenshot?</p>
+                  <p className="font-semibold mb-1">Q.2 Why do I need to upload a screenshot?</p>
                   <p className="text-muted-foreground">
                     The screenshot helps us verify your transaction faster and provides additional proof of payment.
                   </p>
                 </div>
                 <div>
-                  <p className="font-semibold mb-1">How long does verification take?</p>
+                  <p className="font-semibold mb-1">Q.3 How long does verification take?</p>
                   <p className="text-muted-foreground">
                     Typically 5-10 minutes after the TRON network confirms your transaction (usually 1-2 minutes).
                   </p>
                 </div>
                 <div>
-                  <p className="font-semibold mb-1">What if I sent to the wrong address?</p>
+                  <p className="font-semibold mb-1">Q.4 What if I sent to the wrong address?</p>
                   <p className="text-muted-foreground">
                     Unfortunately, blockchain transactions cannot be reversed. Always double-check the address before sending.
                   </p>
