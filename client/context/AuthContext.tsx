@@ -268,6 +268,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } catch (error: any) {
       console.error('❌ Signup error:', error);
       console.error('Error response:', error?.response?.data);
+      
+      // Extract error message from various sources
+      let errorMessage = "Signup failed";
+      
+      if (error?.data?.error) {
+        errorMessage = error.data.error;
+      } else if (error?.data?.message) {
+        errorMessage = error.data.message;
+      } else if (error?.message) {
+        errorMessage = error.message;
+      } else if (typeof error === "string") {
+        errorMessage = error;
+      }
+      
       dispatch({
         type: "SIGNUP_FAIL",
         payload: errorMessage,
