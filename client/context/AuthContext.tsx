@@ -236,7 +236,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     dispatch({ type: "SIGNUP_START" });
     try {
       const payload: SignupRequest = { email, password, name, phone };
-      await apiClient.post("/auth/register", payload);
+
+      // Check for referral code in URL query parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const ref = urlParams.get('ref');
+      let endpoint = "/auth/register";
+      if (ref) {
+        endpoint += `?ref=${ref}`;
+      }
+
+      await apiClient.post(endpoint, payload);
       // Store email so the verify-email page can pre-fill it
       sessionStorage.setItem("pending_verify_email", email);
       dispatch({ type: "SIGNUP_SUCCESS" });
