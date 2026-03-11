@@ -146,27 +146,27 @@ export default function Dashboard() {
             >
               <GlassCard
                 heavy
-                className="p-6 bg-gradient-to-br from-emerald-500/10 to-green-500/5 hover:from-emerald-500/20 hover:to-green-500/10 transition-all hover:scale-105 h-full flex flex-col justify-between border border-emerald-500/20 hover:border-emerald-500/40"
+                className="p-6 bg-gradient-to-br from-primary/10 to-accent/5 hover:from-primary/20 hover:to-accent/10 transition-all hover:scale-105 h-full flex flex-col justify-between border border-primary/20 hover:border-primary/40"
               >
                 <div>
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <p className="text-sm text-muted-foreground font-medium group-hover:text-emerald-500 transition-colors">
+                      <p className="text-sm text-muted-foreground font-medium group-hover:text-primary transition-colors">
                         Deposit Funds
                       </p>
                     </div>
                     <Wallet
-                      className="text-emerald-500/50 group-hover:text-emerald-500 transition-all group-hover:scale-110"
+                      className="text-primary/50 group-hover:text-primary transition-all group-hover:scale-110"
                       size={24}
                     />
                   </div>
                   <div className="mb-4">
                     <p className="text-xs text-muted-foreground mb-1">Add funds to invest</p>
-                    <p className="text-xl font-bold text-emerald-500">${displayBalance.mainWallet.toFixed(2)}</p>
+                    <p className="text-xl font-bold text-primary">${displayBalance.mainWallet.toFixed(2)}</p>
                     <p className="text-xs text-muted-foreground mt-1">Main Wallet Balance</p>
                   </div>
                 </div>
-                <button className="w-full py-2 px-3 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/30 text-emerald-500 font-semibold rounded-lg transition-all group-hover:border-emerald-500 text-sm">
+                <button className="w-full py-2 px-3 bg-primary/20 hover:bg-primary/30 border border-primary/30 text-primary font-semibold rounded-lg transition-all group-hover:border-primary text-sm">
                   Deposit Now →
                 </button>
               </GlassCard>
