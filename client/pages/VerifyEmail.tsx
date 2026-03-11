@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { GlassCard } from "@/components/common/GlassCard";
 import { apiClient } from "@/services/api";
 import { MailCheck, RefreshCw, Mail } from "lucide-react";
+import { TradingBackground } from "@/components/sections/TradingBackground";
 
 export default function VerifyEmail() {
   const navigate = useNavigate();
@@ -15,6 +16,10 @@ export default function VerifyEmail() {
     () => sessionStorage.getItem("pending_verify_email") || ""
   );
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+  const [isDarkMode] = useState(() => {
+    const saved = localStorage.getItem("appDarkMode");
+    return saved !== null ? JSON.parse(saved) : true;
+  });
 
   useEffect(() => {
     inputRefs.current[0]?.focus();
@@ -92,8 +97,9 @@ export default function VerifyEmail() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-md space-y-8 animate-slide-up">
+    <div className="min-h-screen flex items-center justify-center p-4 relative">
+      <TradingBackground isDarkMode={isDarkMode} />
+      <div className="w-full max-w-md space-y-8 animate-slide-up relative z-10">
         {/* Logo */}
         <div className="text-center space-y-2">
           <h1 className="text-4xl font-bold text-primary">Timofx</h1>

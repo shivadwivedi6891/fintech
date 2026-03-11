@@ -3,12 +3,17 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { GlassCard } from "@/components/common/GlassCard";
 import { Mail, Lock, LogIn } from "lucide-react";
+import { TradingBackground } from "@/components/sections/TradingBackground";
 
 export default function Login() {
   const navigate = useNavigate();
   const { login, isLoading, error, clearError } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isDarkMode] = useState(() => {
+    const saved = localStorage.getItem("appDarkMode");
+    return saved !== null ? JSON.parse(saved) : true;
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,8 +34,9 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-md space-y-8 animate-slide-up">
+    <div className="min-h-screen flex items-center justify-center p-4 relative">
+      <TradingBackground isDarkMode={isDarkMode} />
+      <div className="w-full max-w-md space-y-8 animate-slide-up relative z-10">
         {/* Logo */}
         <div className="text-center space-y-2">
           <h1 className="text-4xl font-bold text-primary">Timofx</h1>
