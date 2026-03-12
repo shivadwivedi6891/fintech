@@ -106,7 +106,7 @@ export default function Dashboard() {
           />
           <MetricsCard
             title="Total Income"
-            value={displayBalance.totalInvestment}
+            value={displayBalance.profitBalance + displayBalance.referralBonus}
             icon={<ArrowDownLeft />}
           />
         </div>
