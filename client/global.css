@@ -7,48 +7,48 @@
 
 @layer base {
   /**
-   * Dark Trading Theme - Professional Trading Platform Colors
+   * Navy + Gold Trading Theme - Professional Trading Platform Colors
    * tailwind.config.ts expects the following color variables to be expressed as HSL values.
    * A different format will require also updating the theme in tailwind.config.ts.
   */
   :root {
-    /* Trading Theme: Dark backgrounds with emerald/teal accents */
-    --background: 210 13% 9%;          /* Deep navy-black */
+    /* Trading Theme: Navy backgrounds with gold accents */
+    --background: 218 78% 5%;          /* Deep navy #050A14 */
     --foreground: 210 13% 95%;         /* Almost white */
 
-    --card: 210 13% 15%;               /* Dark card background */
+    --card: 215 50% 13%;               /* Dark card background #0F2137 */
     --card-foreground: 210 13% 93%;    /* Light text on cards */
 
-    --popover: 210 13% 12%;            /* Dark popover */
+    --popover: 216 55% 10%;            /* Dark popover #0A1628 */
     --popover-foreground: 210 13% 95%; /* Light text */
 
-    --primary: 162 72% 45%;            /* Emerald green - main accent */
-    --primary-foreground: 210 13% 9%;  /* Dark text on light bg */
+    --primary: 43 49% 51%;             /* Gold accent #A8893C */
+    --primary-foreground: 218 78% 5%;  /* Dark text on gold */
 
-    --secondary: 210 13% 25%;          /* Lighter gray for secondary elements */
+    --secondary: 215 50% 18%;          /* Lighter navy for secondary elements */
     --secondary-foreground: 210 13% 95%; /* Light text */
 
-    --muted: 210 13% 20%;              /* Muted backgrounds */
-    --muted-foreground: 210 10% 60%;   /* Muted text */
+    --muted: 215 40% 16%;              /* Muted backgrounds */
+    --muted-foreground: 209 30% 75%;   /* Muted text #B8C8D8 */
 
-    --accent: 45 93% 56%;              /* Amber/Gold accent */
-    --accent-foreground: 210 13% 9%;   /* Dark text */
+    --accent: 43 70% 57%;              /* Gold accent #E2BC6A */
+    --accent-foreground: 218 78% 5%;   /* Dark text */
 
     --destructive: 0 84.2% 60.2%;      /* Red */
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 13% 20%;             /* Subtle borders */
-    --input: 210 13% 18%;              /* Input backgrounds */
-    --ring: 162 72% 45%;               /* Focus ring - emerald */
+    --border: 215 40% 16%;             /* Subtle borders */
+    --input: 215 45% 14%;              /* Input backgrounds */
+    --ring: 43 49% 51%;                /* Focus ring - gold */
 
     --radius: 0.5rem;
 
-    /* Success/Profit - Emerald Green */
-    --success: 162 72% 50%;
-    --success-foreground: 210 13% 9%;
+    /* Success/Profit - Gold */
+    --success: 43 70% 57%;
+    --success-foreground: 218 78% 5%;
 
-    /* Profit indicator - Bright emerald */
-    --profit: 162 75% 50%;
+    /* Profit indicator - Bright gold */
+    --profit: 43 70% 57%;
 
     /* Loss indicator - Red */
     --loss: 0 84.2% 60.2%;
@@ -57,85 +57,85 @@
     --warning: 45 93% 56%;
 
     /* Sidebar */
-    --sidebar-background: 210 13% 12%;
+    --sidebar-background: 216 55% 10%;
     --sidebar-foreground: 210 13% 90%;
-    --sidebar-primary: 162 72% 45%;
-    --sidebar-primary-foreground: 210 13% 9%;
-    --sidebar-accent: 210 13% 25%;
+    --sidebar-primary: 43 49% 51%;
+    --sidebar-primary-foreground: 218 78% 5%;
+    --sidebar-accent: 215 50% 18%;
     --sidebar-accent-foreground: 210 13% 95%;
-    --sidebar-border: 210 13% 20%;
-    --sidebar-ring: 162 72% 45%;
+    --sidebar-border: 215 40% 16%;
+    --sidebar-ring: 43 49% 51%;
   }
 
   .dark {
-    --background: 210 13% 9%;
+    --background: 218 78% 5%;
     --foreground: 210 13% 95%;
-    --card: 210 13% 15%;
+    --card: 215 50% 13%;
     --card-foreground: 210 13% 93%;
-    --popover: 210 13% 12%;
+    --popover: 216 55% 10%;
     --popover-foreground: 210 13% 95%;
-    --primary: 162 72% 45%;
-    --primary-foreground: 210 13% 9%;
-    --secondary: 210 13% 25%;
+    --primary: 43 49% 51%;
+    --primary-foreground: 218 78% 5%;
+    --secondary: 215 50% 18%;
     --secondary-foreground: 210 13% 95%;
-    --muted: 210 13% 20%;
-    --muted-foreground: 210 10% 60%;
-    --accent: 45 93% 56%;
-    --accent-foreground: 210 13% 9%;
+    --muted: 215 40% 16%;
+    --muted-foreground: 209 30% 75%;
+    --accent: 43 70% 57%;
+    --accent-foreground: 218 78% 5%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 210 13% 20%;
-    --input: 210 13% 18%;
-    --ring: 162 72% 45%;
-    --success: 162 72% 50%;
-    --success-foreground: 210 13% 9%;
-    --profit: 162 75% 50%;
+    --border: 215 40% 16%;
+    --input: 215 45% 14%;
+    --ring: 43 49% 51%;
+    --success: 43 70% 57%;
+    --success-foreground: 218 78% 5%;
+    --profit: 43 70% 57%;
     --loss: 0 84.2% 60.2%;
     --warning: 45 93% 56%;
-    --sidebar-background: 210 13% 12%;
+    --sidebar-background: 216 55% 10%;
     --sidebar-foreground: 210 13% 90%;
-    --sidebar-primary: 162 72% 45%;
-    --sidebar-primary-foreground: 210 13% 9%;
-    --sidebar-accent: 210 13% 25%;
+    --sidebar-primary: 43 49% 51%;
+    --sidebar-primary-foreground: 218 78% 5%;
+    --sidebar-accent: 215 50% 18%;
     --sidebar-accent-foreground: 210 13% 95%;
-    --sidebar-border: 210 13% 20%;
-    --sidebar-ring: 162 72% 45%;
+    --sidebar-border: 215 40% 16%;
+    --sidebar-ring: 43 49% 51%;
   }
 
-  /* Light mode - Professional Green Trading Theme */
+  /* Light mode - Professional Gold Trading Theme */
   html.light-mode {
-    --background: 150 20% 98%;        /* Soft green-tinted background #F8FAF9 */
+    --background: 210 20% 98%;        /* Soft light background */
     --foreground: 222 47% 11%;        /* Deep slate text #0F172A for high contrast */
     --card: 0 0% 100%;                /* Pure white cards #FFFFFF */
     --card-foreground: 222 47% 11%;   /* Deep slate text */
     --popover: 0 0% 100%;             /* White popover */
     --popover-foreground: 222 47% 11%; /* Deep slate text */
-    --primary: 142 76% 36%;           /* Professional green #16A34A */
-    --primary-foreground: 0 0% 100%;  /* White text on green */
-    --secondary: 138 35% 93%;         /* Light green-tinted secondary #F0FDF4 */
+    --primary: 43 49% 45%;            /* Gold #A8893C */
+    --primary-foreground: 0 0% 100%;  /* White text on gold */
+    --secondary: 40 30% 95%;          /* Light gold-tinted secondary */
     --secondary-foreground: 222 47% 11%; /* Deep slate text */
-    --muted: 150 20% 96%;             /* Visible muted background */
-    --muted-foreground: 215 20% 40%;  /* Medium-dark gray #475569 for better visibility */
-    --accent: 142 71% 45%;            /* Brighter green accent #22C55E */
-    --accent-foreground: 0 0% 100%;   /* White text on accent */
+    --muted: 210 20% 96%;             /* Visible muted background */
+    --muted-foreground: 215 20% 40%;  /* Medium-dark gray #475569 / slate-700 */
+    --accent: 43 70% 57%;             /* Gold accent #E2BC6A */
+    --accent-foreground: 222 47% 11%; /* Dark text on accent */
     --destructive: 0 84.2% 60.2%;     /* Red for errors */
     --destructive-foreground: 0 0% 100%;
     --border: 214 32% 85%;            /* More visible borders #E2E8F0 */
-    --input: 150 15% 97%;             /* Slightly tinted input background */
-    --ring: 142 76% 36%;              /* Green focus ring */
-    --success: 142 76% 36%;           /* Professional green for success */
+    --input: 210 15% 97%;             /* Slightly tinted input background */
+    --ring: 43 49% 45%;               /* Gold focus ring */
+    --success: 43 49% 45%;            /* Gold for success */
     --success-foreground: 0 0% 100%;  /* White text */
-    --profit: 142 71% 45%;            /* Bright green for profit #22C55E */
+    --profit: 43 70% 57%;             /* Bright gold for profit */
     --loss: 0 84.2% 60.2%;            /* Red for loss */
     --warning: 45 93% 56%;            /* Amber warning */
-    --sidebar-background: 138 25% 97%; /* Very light green sidebar */
+    --sidebar-background: 40 20% 97%; /* Very light gold sidebar */
     --sidebar-foreground: 222 47% 11%; /* Deep slate text */
-    --sidebar-primary: 142 76% 36%;   /* Professional green */
+    --sidebar-primary: 43 49% 45%;    /* Gold */
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 138 35% 93%;    /* Light green accent */
+    --sidebar-accent: 40 30% 95%;     /* Light gold accent */
     --sidebar-accent-foreground: 222 47% 11%;
     --sidebar-border: 214 32% 85%;    /* Visible border */
-    --sidebar-ring: 142 76% 36%;      /* Green focus ring */
+    --sidebar-ring: 43 49% 45%;       /* Gold focus ring */
   }
 }
 
@@ -197,7 +197,7 @@
 
   /* Glow effects for profits */
   .profit-glow {
-    @apply text-profit drop-shadow-[0_0_8px_rgba(16,185,129,0.4)] transition-colors duration-300;
+    @apply text-profit drop-shadow-[0_0_8px_rgba(201,168,76,0.4)] transition-colors duration-300;
   }
 
   .loss-glow {

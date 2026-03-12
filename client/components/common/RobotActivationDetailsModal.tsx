@@ -118,26 +118,26 @@ export function RobotActivationDetailsModal({
           </div>
 
           {/* Benefits */}
-          <GlassCard className="p-4 bg-gradient-to-br from-emerald-500/10 to-green-500/5 border border-emerald-500/20">
+          <GlassCard className="p-4 bg-gradient-to-br from-primary/10 to-accent/5 border border-primary/20">
             <div className="flex items-center gap-2 mb-3">
-              <Zap className="text-emerald-500" size={18} />
+              <Zap className="text-primary" size={18} />
               <p className="text-sm font-semibold">Current Benefits</p>
             </div>
             <ul className="space-y-2 text-xs text-muted-foreground">
               <li className="flex items-center gap-2">
-                <span className="w-1 h-1 bg-emerald-500 rounded-full" />
+                <span className="w-1 h-1 bg-primary rounded-full" />
                 24/7 automated trading
               </li>
               <li className="flex items-center gap-2">
-                <span className="w-1 h-1 bg-emerald-500 rounded-full" />
+                <span className="w-1 h-1 bg-primary rounded-full" />
                 Real-time market analysis
               </li>
               <li className="flex items-center gap-2">
-                <span className="w-1 h-1 bg-emerald-500 rounded-full" />
+                <span className="w-1 h-1 bg-primary rounded-full" />
                 Risk management enabled
               </li>
               <li className="flex items-center gap-2">
-                <span className="w-1 h-1 bg-emerald-500 rounded-full" />
+                <span className="w-1 h-1 bg-primary rounded-full" />
                 Premium support included
               </li>
             </ul>

@@ -121,13 +121,13 @@ export function SimpleChart({
           {/* Gradient definitions */}
           <defs>
             <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="rgb(34, 197, 94)" stopOpacity="0.3" />
-              <stop offset="50%" stopColor="rgb(34, 197, 94)" stopOpacity="0.15" />
-              <stop offset="100%" stopColor="rgb(34, 197, 94)" stopOpacity="0.05" />
+              <stop offset="0%" stopColor="rgb(201, 168, 76)" stopOpacity="0.3" />
+              <stop offset="50%" stopColor="rgb(201, 168, 76)" stopOpacity="0.15" />
+              <stop offset="100%" stopColor="rgb(201, 168, 76)" stopOpacity="0.05" />
             </linearGradient>
             <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="rgb(34, 197, 94)" />
-              <stop offset="100%" stopColor="rgb(16, 185, 129)" />
+              <stop offset="0%" stopColor="rgb(168, 137, 60)" />
+              <stop offset="100%" stopColor="rgb(226, 188, 106)" />
             </linearGradient>
           </defs>
 
@@ -188,7 +188,7 @@ export function SimpleChart({
                 cx={point.x}
                 cy={point.y}
                 r={hoveredPoint === i ? 6 : 0}
-                fill="rgb(34, 197, 94)"
+                fill="rgb(201, 168, 76)"
                 stroke="white"
                 strokeWidth="2"
                 style={{
