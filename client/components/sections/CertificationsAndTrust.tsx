@@ -59,8 +59,8 @@ export function CertificationsAndTrust({
     <section
       className={`py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
         isDarkMode
-          ? "bg-gradient-to-b from-slate-900 via-teal-950/20 to-slate-900"
-          : "bg-gradient-to-b from-slate-100 via-teal-50/20 to-slate-100"
+          ? "bg-gradient-to-b from-slate-900 via-[#0A1628]/20 to-slate-900"
+          : "bg-gradient-to-b from-slate-100 via-amber-50/20 to-slate-100"
       }`}
     >
       <div className="max-w-5xl mx-auto">
@@ -74,7 +74,7 @@ export function CertificationsAndTrust({
         >
           <h2 className={`text-4xl sm:text-5xl font-bold mb-4 ${textColor}`}>
             Certifications &{" "}
-            <span className="bg-gradient-to-r from-teal-500 to-emerald-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] bg-clip-text text-transparent">
               Trust
             </span>
           </h2>
@@ -102,7 +102,7 @@ export function CertificationsAndTrust({
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-teal-500/0 to-emerald-500/0 group-hover:from-teal-500/10 group-hover:to-emerald-500/10 transition-all duration-300" />
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#C9A84C]/0 to-[#A8893C]/0 group-hover:from-[#C9A84C]/10 group-hover:to-[#A8893C]/10 transition-all duration-300" />
 
                 <div className="relative z-10">
                   {/* Icon */}
@@ -115,12 +115,12 @@ export function CertificationsAndTrust({
                       stiffness: 300,
                     }}
                   >
-                    <Icon className="w-10 h-10 text-teal-500" />
+                    <Icon className="w-10 h-10 text-[#C9A84C]" />
                   </motion.div>
 
                   {/* Title */}
                   <h3
-                    className={`text-xl font-bold mb-2 bg-gradient-to-r from-teal-500 to-emerald-500 bg-clip-text text-transparent`}
+                    className={`text-xl font-bold mb-2 bg-gradient-to-r from-[#A8893C] to-[#E2BC6A] bg-clip-text text-transparent`}
                   >
                     {cert.title}
                   </h3>

@@ -11,8 +11,23 @@ export default function Landing() {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("intro");
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem("appDarkMode");
+    return saved !== null ? JSON.parse(saved) : true;
+  });
   const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    localStorage.setItem("appDarkMode", JSON.stringify(isDarkMode));
+    const htmlElement = document.documentElement;
+    if (isDarkMode) {
+      htmlElement.classList.add("dark");
+      htmlElement.classList.remove("light-mode");
+    } else {
+      htmlElement.classList.remove("dark");
+      htmlElement.classList.add("light-mode");
+    }
+  }, [isDarkMode]);
 
   useEffect(() => {
     const handleScrollPos = () => setScrollY(window.scrollY);
