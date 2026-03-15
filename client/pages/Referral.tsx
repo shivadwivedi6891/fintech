@@ -75,7 +75,7 @@ export default function Referral() {
         {!loading && !error && referralData && (
           <>
             {/* Referral Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <GlassCard heavy className="p-6">
                 <p className="text-muted-foreground text-sm font-medium">
                   Total Referrals
