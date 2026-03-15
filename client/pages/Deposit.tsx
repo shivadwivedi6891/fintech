@@ -236,11 +236,13 @@ export default function Deposit() {
                   </span>
                 </div>
 
-                {/* QR Code Placeholder */}
+                {/* QR Code */}
                 <div className="flex justify-center p-6 bg-white rounded-lg">
-                  <div className="w-48 h-48 flex items-center justify-center border-2 border-dashed border-gray-300">
-                    <QrCode size={48} className="text-gray-400" />
-                  </div>
+                  <img 
+                    src="/qr.png" 
+                    alt="Deposit QR Code" 
+                    className="w-48 h-48"
+                  />
                 </div>
 
                 {/* Deposit Address */}
