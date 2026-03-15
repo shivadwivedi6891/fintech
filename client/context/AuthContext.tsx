@@ -7,6 +7,7 @@ export interface User {
   email: string;
   name: string;
   accountStatus: "inactive" | "active" | "verified";
+  robotStatus: "inactive" | "active";
   createdAt: Date;
   referralCode: string;
 }
@@ -145,6 +146,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         email: email,
         name: res.data.user.name,
         accountStatus: res.data.user.accountStatus,
+        robotStatus: res.data.user.robotStatus,
         createdAt: new Date(res.data.user.createdAt),
         referralCode: res.data.user.referralCode ?? "",
       };
@@ -204,6 +206,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           email: userRes.data.email,
           name: userRes.data.name,
           accountStatus: userRes.data.status,
+          robotStatus: userRes.data.robot_status,
           createdAt: new Date(userRes.data.created_at),
           referralCode: userRes.data.referral_code ?? "",
         };
@@ -225,6 +228,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           email: "",
           name: "",
           accountStatus: "active",
+          robotStatus: "inactive",
           createdAt: new Date(),
           referralCode: "",
         };

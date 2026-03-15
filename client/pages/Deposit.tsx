@@ -19,6 +19,7 @@ export default function Deposit() {
   const [amount, setAmount] = useState("");
   const [txHash, setTxHash] = useState("");
   const [screenshot, setScreenshot] = useState<File | null>(null);
+  const [senderAddress, setSenderAddress] = useState("");
   const [depositAddress, setDepositAddress] = useState<string>("TRRBEAZp1UhHd3W5sKHfpWjxk77WjargVg");
   const [network, setNetwork] = useState<string>("TRC20");
   const [loading, setLoading] = useState(true);
@@ -95,6 +96,11 @@ export default function Deposit() {
       return;
     }
 
+    if (!senderAddress || senderAddress.length !== 34) {
+      setError("Please enter the sending address (34 characters)");
+      return;
+    }
+
     if (!screenshot) {
       setError("Please upload a transaction screenshot");
       return;
@@ -114,6 +120,7 @@ export default function Deposit() {
       const formData = new FormData();
       formData.append('tx_hash', txHash);
       formData.append('amount', amount);
+      formData.append('sender_address', senderAddress);
       formData.append('screenshot', screenshot);
 
       // Send request with FormData
@@ -127,6 +134,7 @@ export default function Deposit() {
         setSuccess("Deposit submitted successfully! Your transaction will be verified within 5-10 minutes.");
         setAmount("");
         setTxHash("");
+        setSenderAddress("");
         setScreenshot(null);
         setStep(1);
         
@@ -381,16 +389,24 @@ export default function Deposit() {
                     )}
                   </div>
 
-                  {/* Deposit Address Display */}
+                  {/* Sender Address Input */}
                   <div>
                     <label className="block text-sm font-semibold mb-2">
-                      Deposit Address (Auto-filled)
+                      The address of the user’s address from where amount is paid
                     </label>
-                    <div className="p-3 bg-card/30 rounded-lg border border-white/10">
-                      <code className="text-xs font-mono break-all text-muted-foreground">
-                        {depositAddress}
-                      </code>
-                    </div>
+                    <input
+                      type="text"
+                      value={senderAddress}
+                      onChange={(e) => setSenderAddress(e.target.value)}
+                      placeholder="Enter sender address"
+                      maxLength={34}
+                      className="w-full bg-input border border-white/10 rounded-lg px-4 py-3 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                      required
+                      disabled={submitting}
+                    />
+                    <p className="text-xs text-muted-foreground mt-2">
+                      Max length: 34 characters
+                    </p>
                   </div>
 
                   {/* Buttons */}
