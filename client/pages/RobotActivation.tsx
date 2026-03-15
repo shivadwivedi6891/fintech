@@ -53,10 +53,6 @@ export default function RobotActivation() {
       return;
     }
 
-    // if (!validateTxHash(txHash)) {
-    //   setError("Invalid transaction hash format. Please check and try again.");
-    //   return;
-    // }
 
     if (!depositAddress.trim()) {
       setError("Please enter a deposit address");

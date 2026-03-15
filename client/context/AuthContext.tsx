@@ -9,6 +9,7 @@ export interface User {
   name: string;
   phone: string;
   accountStatus: "inactive" | "active" | "verified";
+  robotStatus: "inactive" | "active";
   createdAt: Date;
   referralCode: string;
 }
@@ -147,6 +148,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         email: email,
         name: res.data.user.name,
         accountStatus: res.data.user.accountStatus,
+        robotStatus: res.data.user.robotStatus,
         createdAt: new Date(res.data.user.createdAt),
         referralCode: res.data.user.referralCode ?? "",
       };
@@ -206,6 +208,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           email: userRes.data.email,
           name: userRes.data.name,
           accountStatus: userRes.data.status,
+          robotStatus: userRes.data.robot_status,
           createdAt: new Date(userRes.data.created_at),
           referralCode: userRes.data.referral_code ?? "",
         };
@@ -227,6 +230,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           email: "",
           name: "",
           accountStatus: "active",
+          robotStatus: "inactive",
           createdAt: new Date(),
           referralCode: "",
         };
@@ -254,13 +258,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     dispatch({ type: "SIGNUP_START" });
     try {
       const payload: SignupRequest = { email, password, name, phone };
-      console.log('📤 Sending registration request to backend...');
-      console.log('API Endpoint:', '/auth/register');
-      console.log('Payload:', { email, name, phone, password: '***' });
-      
-      const response = await apiClient.post("/auth/register", payload);
-      console.log('✅ Backend response received:', response.data);
-      
+
+      // Check for referral code in URL query parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const ref = urlParams.get('ref');
+      let endpoint = "/auth/register";
+      if (ref) {
+        endpoint += `?ref=${ref}`;
+      }
+
+      await apiClient.post(endpoint, payload);
       // Store email so the verify-email page can pre-fill it
       sessionStorage.setItem("pending_verify_email", email);
       console.log('✅ Email stored in sessionStorage');
