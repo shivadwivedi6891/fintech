@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { GlassCard } from "@/components/common/GlassCard";
 import { Mail, Lock, User, Phone, LogIn, ChevronDown } from "lucide-react";
+import { TradingBackground } from "@/components/sections/TradingBackground";
 
 const COUNTRIES = [
   { name: "India", code: "+91", flag: "🇮🇳", maxDigits: 10 },
@@ -27,6 +28,10 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [localError, setLocalError] = useState("");
+  const [isDarkMode] = useState(() => {
+    const saved = localStorage.getItem("appDarkMode");
+    return saved !== null ? JSON.parse(saved) : true;
+  });
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value.replace(/\D/g, "");
@@ -75,8 +80,9 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-md space-y-8 animate-slide-up">
+    <div className="min-h-screen flex items-center justify-center p-4 relative">
+      <TradingBackground isDarkMode={isDarkMode} />
+      <div className="w-full max-w-md space-y-8 animate-slide-up relative z-10">
         {/* Logo */}
         <div className="text-center space-y-2">
           <h1 className="text-4xl font-bold text-primary">Timofx</h1>

@@ -87,10 +87,10 @@ export default {
         },
         "counter-glow": {
           "0%, 100%": {
-            boxShadow: "0 0 20px rgba(16, 185, 129, 0.3)",
+            boxShadow: "0 0 20px rgba(201, 168, 76, 0.3)",
           },
           "50%": {
-            boxShadow: "0 0 30px rgba(16, 185, 129, 0.5)",
+            boxShadow: "0 0 30px rgba(201, 168, 76, 0.5)",
           },
         },
         "fade-in": {
