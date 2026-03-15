@@ -7,7 +7,7 @@ import { useAuth } from "@/context/AuthContext";
 interface DepositAddressResponse {
   success: boolean;
   network: string;
-  address: string;
+  depositAddress: string;
 }
 
 interface DepositSubmitResponse {
@@ -20,7 +20,7 @@ export default function Deposit() {
   const [txHash, setTxHash] = useState("");
   const [screenshot, setScreenshot] = useState<File | null>(null);
   const [senderAddress, setSenderAddress] = useState("");
-  const [depositAddress, setDepositAddress] = useState<string>("TRRBEAZp1UhHd3W5sKHfpWjxk77WjargVg");
+  const [depositAddress, setDepositAddress] = useState<string>('');
   const [network, setNetwork] = useState<string>("TRC20");
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
@@ -38,7 +38,7 @@ export default function Deposit() {
       setLoading(true);
       const response = await apiClient.get<DepositAddressResponse>("/admin/depositeAddress");
       console.log("Deposit Address Response:", response.data);
-
+      setDepositAddress(response.data.depositAddress);
       const data = response.data as DepositAddressResponse;
       
       if (data.success) {
