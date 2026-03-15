@@ -3,9 +3,12 @@ import { useNavigate, Link } from "react-router-dom";
 import { GlassCard } from "@/components/common/GlassCard";
 import { apiClient } from "@/services/api";
 import { MailCheck, RefreshCw, Mail } from "lucide-react";
+import { TradingBackground } from "@/components/sections/TradingBackground";
+import { useAuth } from "@/context/AuthContext";
 
 export default function VerifyEmail() {
   const navigate = useNavigate();
+  const { updateAuthAfter2FA } = useAuth();
   const [otp, setOtp] = useState<string[]>(["", "", "", "", "", ""]);
   const [isLoading, setIsLoading] = useState(false);
   const [isResending, setIsResending] = useState(false);
@@ -61,11 +64,30 @@ export default function VerifyEmail() {
 
     setIsLoading(true);
     try {
-      await apiClient.post("/auth/verify-email", { email: emailInput.trim(), otp: code });
-      sessionStorage.removeItem("pending_verify_email");
-      setSuccess("Email verified! Redirecting to login…");
-      setTimeout(() => navigate("/login"), 1500);
+      console.log('✅ Verifying email with OTP...');
+      const response = await apiClient.post("/auth/verify-email", { 
+        email: emailInput.trim(), 
+        otp: code 
+      });
+      
+      console.log('✅ Email verified successfully!', response.data);
+      
+      // Check if backend returned auth tokens (auto-login)
+      if (response.data.token && response.data.refreshToken) {
+        console.log('🔐 Auto-logging in user...');
+        // Use the updateAuthAfter2FA function to set auth state
+        await updateAuthAfter2FA(response.data.token, response.data.refreshToken);
+        sessionStorage.removeItem("pending_verify_email");
+        setSuccess("Email verified! Redirecting to dashboard…");
+        setTimeout(() => navigate("/dashboard"), 1500);
+      } else {
+        // Fallback: old behavior (redirect to login)
+        sessionStorage.removeItem("pending_verify_email");
+        setSuccess("Email verified! Redirecting to login…");
+        setTimeout(() => navigate("/login"), 1500);
+      }
     } catch (err: any) {
+      console.error('❌ Email verification failed:', err);
       setError(
         err?.message || "Invalid or expired OTP. Please try again."
       );

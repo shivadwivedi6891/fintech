@@ -33,15 +33,28 @@ class ApiService {
     this.instance.interceptors.response.use(
       (response) => response,
       (error: AxiosError) => {
+        console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        console.error('❌ API ERROR');
+        console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        console.error('URL:', error.config?.url);
+        console.error('Method:', error.config?.method?.toUpperCase());
+        console.error('Status:', error.response?.status);
+        console.error('Response Data:', error.response?.data);
+        console.error('Error Message:', error.message);
+        console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        
         if (error.response?.status === 401) {
           // Handle unauthorized - clear auth and redirect to login
           localStorage.removeItem("auth_token");
           window.location.href = "/login";
         }
 
+        // Extract error message from backend
         const message =
           error.response?.data instanceof Object
-            ? (error.response.data as any).error || (error.response.data as any).message
+            ? (error.response.data as any).error ||
+              (error.response.data as any).message ||
+              error.message
             : error.message;
 
         const errorObj = new Error(message || "An error occurred");
