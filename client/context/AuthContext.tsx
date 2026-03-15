@@ -5,7 +5,9 @@ import { SignupRequest } from "@/services/auth.service";
 export interface User {
   id: string;
   email: string;
+
   name: string;
+  phone: string;
   accountStatus: "inactive" | "active" | "verified";
   robotStatus: "inactive" | "active";
   createdAt: Date;

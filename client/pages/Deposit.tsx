@@ -36,7 +36,9 @@ export default function Deposit() {
   const fetchDepositAddress = async () => {
     try {
       setLoading(true);
-      const response = await apiClient.get<DepositAddressResponse>("/wallet/deposit-address");
+      const response = await apiClient.get<DepositAddressResponse>("/admin/depositeAddress");
+      console.log("Deposit Address Response:", response.data);
+
       const data = response.data as DepositAddressResponse;
       
       if (data.success) {
