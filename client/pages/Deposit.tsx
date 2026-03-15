@@ -7,7 +7,7 @@ import { useAuth } from "@/context/AuthContext";
 interface DepositAddressResponse {
   success: boolean;
   network: string;
-  address: string;
+  depositAddress: string;
 }
 
 interface DepositSubmitResponse {
@@ -20,7 +20,7 @@ export default function Deposit() {
   const [txHash, setTxHash] = useState("");
   const [screenshot, setScreenshot] = useState<File | null>(null);
   const [senderAddress, setSenderAddress] = useState("");
-  const [depositAddress, setDepositAddress] = useState<string>("TRRBEAZp1UhHd3W5sKHfpWjxk77WjargVg");
+  const [depositAddress, setDepositAddress] = useState<string>('');
   const [network, setNetwork] = useState<string>("TRC20");
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
@@ -38,7 +38,7 @@ export default function Deposit() {
       setLoading(true);
       const response = await apiClient.get<DepositAddressResponse>("/admin/depositeAddress");
       console.log("Deposit Address Response:", response.data);
-
+      setDepositAddress(response.data.depositAddress);
       const data = response.data as DepositAddressResponse;
       
       if (data.success) {
@@ -236,11 +236,13 @@ export default function Deposit() {
                   </span>
                 </div>
 
-                {/* QR Code Placeholder */}
+                {/* QR Code */}
                 <div className="flex justify-center p-6 bg-white rounded-lg">
-                  <div className="w-48 h-48 flex items-center justify-center border-2 border-dashed border-gray-300">
-                    <QrCode size={48} className="text-gray-400" />
-                  </div>
+                  <img 
+                    src="/qr.png" 
+                    alt="Deposit QR Code" 
+                    className="w-48 h-48"
+                  />
                 </div>
 
                 {/* Deposit Address */}
