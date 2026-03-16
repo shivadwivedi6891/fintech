@@ -89,7 +89,7 @@ function authReducer(state: AuthState, action: AuthAction): AuthState {
 
 interface AuthContextType extends AuthState {
   login: (email: string, password: string) => Promise<{ requires2FA?: boolean; tempToken?: string }>;
-  signup: (email: string, password: string, name: string, phone: string) => Promise<void>;
+  signup: (email: string, password: string, name: string, phone: string,referralCode :string) => Promise<void>;
   logout: () => void;
   clearError: () => void;
   updateAuthAfter2FA: (token: string, refreshToken: string) => Promise<void>;
@@ -149,6 +149,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         name: res.data.user.name,
         accountStatus: res.data.user.accountStatus,
         robotStatus: res.data.user.robotStatus,
+        phone: res.data.user.phone,
         createdAt: new Date(res.data.user.createdAt),
         referralCode: res.data.user.referralCode ?? "",
       };
@@ -230,6 +231,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           email: "",
           name: "",
           accountStatus: "active",
+          phone: "",
           robotStatus: "inactive",
           createdAt: new Date(),
           referralCode: "",
@@ -252,12 +254,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const signup = async (email: string, password: string, name: string, phone: string) => {
+  const signup = async (email: string, password: string, name: string, phone: string,referralCode :string) => {
     console.log('🔐 AuthContext: Starting signup process...');
     console.log('Email:', email);
     dispatch({ type: "SIGNUP_START" });
     try {
-      const payload: SignupRequest = { email, password, name, phone };
+      const payload: SignupRequest = { email, password, name, phone, referralCode };
 
       // Check for referral code in URL query parameters
       const urlParams = new URLSearchParams(window.location.search);
