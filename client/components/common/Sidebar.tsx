@@ -92,51 +92,49 @@ export function Sidebar({ isOpen, onToggle }: SidebarProps) {
     }
   };
 
-  const handleRobotActivationClick = async (href: string) => {
-    if (isCheckingRobotStatus) {
+ const handleRobotActivationClick = async (href: string) => {
+  if (isCheckingRobotStatus) return;
+
+  try {
+    setIsCheckingRobotStatus(true);
+
+    const response = await apiClient.get<{
+      success: boolean;
+      data: {
+        robot_status: string;
+        isExpired: boolean;
+        activation_timestamp: string | null;
+        expiry_date: string | null;
+      };
+    }>("/robot/status");
+
+    // ✅ Correct field name: robot_status, not status
+    const robotStatus = response.data?.data?.robot_status?.toUpperCase();
+    const isExpired = response.data?.data?.isExpired;
+
+    if (robotStatus === "ACTIVE" && !isExpired) {
+      // Robot active hai — directly page pe le jao
+      navigate(href);
+      if (window.innerWidth < 1024) onToggle();
       return;
     }
 
-    try {
-      setIsCheckingRobotStatus(true);
+    // Inactive ya expired — activation page pe le jao
+    navigateWithExistingGuards(href, "Activate Robot");
 
-      const response = await apiClient.get<{
-        status?: string;
-        data?: { status?: string };
-      }>("/robot-status");
+  } catch (_error) {
+    // Error aaye tab bhi page pe le jao, block mat karo
+    navigateWithExistingGuards(href, "Activate Robot");
+  } finally {
+    setIsCheckingRobotStatus(false);
+  }
+};
 
-      const status =
-        response.data?.status?.toLowerCase() ||
-        response.data?.data?.status?.toLowerCase();
-
-      if (status === "active") {
-        toast({
-          title: "Robot Activation",
-          description: "Robot is already activated.",
-        });
-        return;
-      }
-
-      if (status === "inactive") {
-        navigateWithExistingGuards(href, "Activate Robot");
-        return;
-      }
-
-      throw new Error("Unexpected robot status response");
-    } catch (_error) {
-      toast({
-        title: "Robot Activation",
-        description: "Unable to verify status. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsCheckingRobotStatus(false);
-    }
-  };
+ 
 
   const handleNav = (href: string, label: string) => {
     if (label === "Activate Robot") {
-      void handleRobotActivationClick(href);
+       void handleRobotActivationClick(href);
       return;
     }
 
